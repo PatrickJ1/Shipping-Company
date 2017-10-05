@@ -1,0 +1,15 @@
+idea - shipping company
+
+you can have a ship object which has limited storage.
+And when the sotrage of the object is full or when told to the ship will run to go empty its storage. 
+
+Ships need to have protection? - depends on destination of ship.
+
+there are orders for products.
+
+company 
+ -shipyard (location)
+  - ship (crew capactiy) (storage capacity) (static int id for ship) -maintances cost
+
+
+

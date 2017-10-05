@@ -1,0 +1,2 @@
+echo test1 
+./com < input-01-main_test.txt | diff - output-01-main_test.txt 
