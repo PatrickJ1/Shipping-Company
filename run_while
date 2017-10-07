@@ -1,0 +1,1 @@
+g++ ship.cpp building.cpp carrier.cpp escort.cpp warehouse.cpp office.cpp company.cpp functions.cpp while_main.cpp -o com

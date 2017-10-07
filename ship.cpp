@@ -6,8 +6,7 @@ int ship::currentID = 0;
 
 ship::ship()
 {
-	shipID = currentID;
-	currentID++;
+	
 	crew_capacity = 0;
 	ship_name = "Vacant";
 }
