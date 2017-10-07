@@ -12,8 +12,6 @@ building::building()
 	building_material = "brick";
 	worker_capacity = 3;
 	branch_location = "unknown";
-	buildingID = currentID;
-	currentID++;
 
 }
 
