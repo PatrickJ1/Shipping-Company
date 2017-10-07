@@ -19,14 +19,22 @@ extern office office_creation();
 
 int main()
 {
-	company eco;
+	
 
 	cout<<"Company has been created"<<endl
 		<<"please enter company name: ";
-		string inital_company_name;
-		cin >> inital_company_name;
-		eco.change_company_name(inital_company_name);
-	cout<<"Your company is called: "<<eco.get_name()<<endl;	
+	string inital_company_name;
+	cin >> inital_company_name;
+
+	int inital_building_capacity;
+	cout<<"Enter inital building capacity: ";
+	cin >> inital_building_capacity;
+
+	int inital_ship_capacity;
+	cout<<"Enter inital ship capacity: ";
+	cin >> inital_ship_capacity;
+
+	company eco(inital_company_name, inital_ship_capacity, inital_building_capacity);
 
 	building* building_storage_pointer;
 
@@ -36,6 +44,7 @@ int main()
 
 	bool program_run = true;
 	string command;
+	int id;
 
 	while(program_run == true)
 	{
@@ -53,14 +62,49 @@ int main()
 		}
 		else if(command == "add_building")
 		{
-			building_storage_pointer[eco.get_no_buildings()] = building_creation();
+			eco.add_building(building_creation());
 
 			cout<<"Building ID is: "<<building_storage_pointer[eco.get_no_buildings()].get_ID()<<endl;
+			cout<<eco.get_no_buildings()<<endl;
 		}
 		else if(command == "add_office")
 		{
-			building_storage_pointer[eco.get_no_buildings()] = office_creation();
-			out<<"Building ID is: "<<building_storage_pointer[eco.get_no_buildings()].get_ID()<<endl;
+			eco.add_building(office_creation());
+			cout<<"Building ID is: "<<building_storage_pointer[eco.get_no_buildings()].get_ID()<<endl;
+		}
+		else if(command == "change_building_location")
+		{
+			cout<<"Enter id of building you wish to modify: ";
+			cin >> id;
+			cout<<eco.get_no_buildings()<<endl;
+			for(int i = 0; i<eco.get_no_buildings(); i++)
+			{
+				cout<<"check";
+				if(id == building_storage_pointer[i].get_ID())
+				{
+					string new_location;
+					cout<<"old location is: "<<building_storage_pointer[i].get_branch_location()<<endl;
+					cout<<"Enter new location: ";
+					cin >> new_location;
+					building_storage_pointer[i].change_branch_location(new_location);
+				}
+			}
+		}
+		else if(command == "chane_ship_name")
+		{
+			cout<<"Enter id of ship you wish to modify: ";
+			cin >> id;
+
+			for(int i =0 ; i<eco.get_no_ships(); i++)
+			{
+				if(id == ship_storage_pointer[i].get_ship_id())
+				{
+					string new_name;
+					cout<<"Enter new ship name: ";
+					cin >> new_name;
+					ship_storage_pointer[i].change_ship_name(new_name);
+				}
+			}
 		}
 		else
 		{
