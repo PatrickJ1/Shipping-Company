@@ -24,7 +24,7 @@ void ship::crew_quaters_renevation(int new_crew_capacity)//add new crew capacity
 	crew_capacity = new_crew_capacity;
 }
 
-int ship::get_crew_amount()
+int ship::get_crew_amount()//returns crew capacity from user function
 {
 	return crew_capacity;
 }
@@ -44,7 +44,7 @@ int ship::get_ship_id()//returns shipID from user function
 	return shipID;
 }
 
-int ship::get_maintance_cost()//creates a lit maintenance cost 
+int ship::get_maintance_cost()//returns a calculited maintenance cost  
 {
 	return crew_capacity * 5;
 }
