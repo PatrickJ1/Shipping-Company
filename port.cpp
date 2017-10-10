@@ -4,7 +4,7 @@
 using namespace std;
 int port::currentID = 0;
 
-port::port()
+port::port()//take currentID from function
 {
 	portID = currentID;
 	currentID++;
