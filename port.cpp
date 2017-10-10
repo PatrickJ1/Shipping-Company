@@ -12,7 +12,4 @@ port::port()
 	number_of_loading_bays = 0;
 	number_of_containers =0;
 
-
 }
-
-
