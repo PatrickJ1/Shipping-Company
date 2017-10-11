@@ -12,12 +12,10 @@ office::office() : building()
 
 office::office(int inital_no_of_office_spaces, 
 		       int inital_no_of_meeting_rooms, 
-		       int intial_width, int intial_height,
 		       string inital_building_material, 
 		       int inital_worker_capacity, 
 		       string inital_branch_location) 
-		       : building(intial_width, intial_height,
-		  			      inital_building_material, 
+		       : building(inital_building_material, 
 		                  inital_worker_capacity, 
 		                  inital_branch_location) 
 {
@@ -53,6 +51,6 @@ string office::get_building_type()
 int office::get_maintance_cost()
 {
 	int cost = no_of_office_spaces * 5 + no_of_meeting_rooms*4
-				+ width*height + worker_capacity*5 ; 
+				+ worker_capacity*5 ; 
 }
 

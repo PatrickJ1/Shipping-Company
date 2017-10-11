@@ -7,10 +7,27 @@
 #include "cost.h"
 #include <iostream>
 #include <string>
+#include <sstream>
 using namespace std;
+int sti(string general_string)
+{
+	int general_int;
+	do
+	{
+		cin >> general_string;
+		stringstream convert(general_string);
+		convert >> general_int;
+		if(general_int<0)
+		{
+			cout<<"Enter a number 0 or greater"<<endl;
+			cout<<"Re enter number:";
+		}
+	}while(general_int<0);
+
+}
 company company_creation()
 {
-	cout<<"Company creation:"<<endl
+	cout<<"Shipping Company creation:"<<endl
 		<<"please enter company name: ";
 	string inital_company_name;
 	cin >> inital_company_name;
@@ -18,89 +35,40 @@ company company_creation()
 	cout<<"----Limited budget----"<<endl<<endl;
 	cout<<"----Inital max storage capacity----"<<endl;
 
+
 	int inital_building_capacity;
-	do
-	{
-		cout<<"Enter inital general building capacity: ";
-		cin >> inital_building_capacity;
-
-		if(inital_building_capacity<0)
-		{
-			cout<<"Enter a number 0 or greater"<<endl;
-		}
-
-	}while(inital_building_capacity<0);
+	string s_inital_building_capacity;
+	cout<<"Enter inital general building capacity: ";
+	inital_building_capacity = sti(s_inital_building_capacity);
+	
 	
 
 	int inital_office_capacity;
-	do
-	{
-		cout<<"Enter inital office capacity: ";
-		cin >> inital_office_capacity;
-
-		if(inital_office_capacity<0)
-		{
-			cout<<"Enter a number 0 or greater"<<endl;
-		}
-
-	}while(inital_office_capacity<0);
+	string s_inital_office_capacity;
+	cout<<"Enter inital office capacity: ";
+	inital_office_capacity = sti(s_inital_office_capacity);
 	
 
 	int inital_warehouse_capacity;
-	do
-	{
-		cout<<"Enter inital warehouse capacity: ";
-		cin >> inital_warehouse_capacity;
-
-		if(inital_warehouse_capacity<0)
-		{
-			cout<<"Enter a number 0 or greater"<<endl;
-		}
-
-	}while(inital_warehouse_capacity<0);
+	string s_inital_warehouse_capacity;
+	cout<<"Enter inital warehouse capacity: ";
+	inital_warehouse_capacity = sti(s_inital_warehouse_capacity);
 	
-
 	int inital_ship_capacity;
-	do
-	{
-		cout<<"Enter inital general ship capacity: ";
-		cin >> inital_ship_capacity;
-
-		if(inital_ship_capacity<0)
-		{
-			cout<<"Enter a number 0 or greater"<<endl;
-		}
-
-	}while(inital_ship_capacity<0);
+	string s_inital_ship_capacity;
+	cout<<"Enter inital general ship capacity: ";
+	inital_ship_capacity = sti(s_inital_ship_capacity);
 
 	int inital_carrier_capacity;
-	do
-	{
-		cout<<"Enter inital carrier capacity: ";
-		cin >> inital_carrier_capacity;
-
-		if(inital_carrier_capacity<0)
-		{
-			cout<<"Enter a number 0 or greater"<<endl;
-		}
-
-	}while(inital_carrier_capacity<0);
-	
+	string s_inital_carrier_capacity;
+	cout<<"Enter inital carrier capacity: ";
+	inital_carrier_capacity = sti(s_inital_carrier_capacity);
 
 	int inital_escort_capacity;
-	do
-	{
-		cout<<"Enter inital escort ship capacity: ";
-		cin >> inital_escort_capacity;
-
-		if(inital_escort_capacity<0)
-		{
-			cout<<"Enter a number 0 or greater"<<endl;
-		}
-
-	}while(inital_escort_capacity<0);
+	string s_inital_escort_capacity;
+	cout<<"Enter inital escort ship capacity: ";
+	inital_escort_capacity = sti(s_inital_escort_capacity);
 	
-
 	company eco(inital_company_name, 
 				inital_ship_capacity, 
 				inital_carrier_capacity,
@@ -117,23 +85,20 @@ company company_creation()
 building building_creation()
 {
 	cout<<"Building creation:"<<endl;
-	cout<<"Enter building width: ";
-	int width;
-	cin >> width;
-	cout<<"Enter building height: ";
-	int height;
-	cin >> width;
 	cout<<"Enter building material: ";
 	string material;
 	cin >> material;
-	cout<<"Enter building worker capacity: ";
+
 	int capacity;
-	cin >> capacity;
+	string s_capacity;
+	cout<<"Enter building worker capacity: ";
+	capacity = sti(s_capacity);
+
 	cout<<"Enter building location: ";
 	string location;
 	cin >> location;
 
-	building house(width, height, material, capacity, location);
+	building house(material, capacity, location);
 
 	return house;
 }
@@ -142,36 +107,32 @@ office office_creation()
 {
 	cout<<"Building creation:"<<endl;
 
-	cout<<"Enter number of office spaces: ";
-	int no_office_space;
-	cin >> no_office_space;
 	
-	cout<<"Enter number of meeting rooms: ";
+	int no_office_space;
+	string s_no_office_space;
+	cout<<"Enter number of office spaces: ";
+	no_office_space = sti(s_no_office_space);
+	
 	int no_meeting_rooms;
-	cin >> no_meeting_rooms;
-
-
-	cout<<"Enter building width: ";
-	int width;
-	cin >> width;
-
-	cout<<"Enter building height: ";
-	int height;
-	cin >> width;
+	string s_no_meeting_rooms;
+	cout<<"Enter number of meeting rooms: ";
+	no_meeting_rooms = sti(s_no_meeting_rooms);
 
 	cout<<"Enter building material: ";
 	string material;
 	cin >> material;
 
-	cout<<"Enter building worker capacity: ";
+	
 	int capacity;
-	cin >> capacity;
+	string s_capacity;
+	cout<<"Enter building worker capacity: ";
+	capacity = sti(s_capacity);
 
 	cout<<"Enter building location: ";
 	string location;
 	cin >> location;
 
-	office pro_house(no_office_space, no_meeting_rooms, width, height, material, capacity, location);
+	office pro_house(no_office_space, no_meeting_rooms, material, capacity, location);
 	return pro_house;
 }
 
@@ -179,39 +140,36 @@ warehouse warehouse_creation()
 {
 	cout<<"Building creation:"<<endl;
 
-	cout<<"Enter number of ports: ";
+	
 	int no_ports;
-	cin >> no_ports;
-
-	cout<<"Enter number of truck loading bays: ";
+	string s_no_ports;
+	cout<<"Enter number of ports: ";
+	no_ports = sti(s_no_ports);
+	
 	int no_truck;
-	cin >> no_truck;
-
-	cout<<"Enter number of ship repair stations: ";
+	string s_no_truck;
+	cout<<"Enter number of truck loading bays: ";
+	no_truck = sti(s_no_truck);
+	
 	int ship_repair;
-	cin >> ship_repair;
-
-	cout<<"Enter building width: ";
-	int width;
-	cin >> width;
-
-	cout<<"Enter building height: ";
-	int height;
-	cin >> width;
+	string s_ship_repair;
+	cout<<"Enter number of ship repair stations: ";
+	ship_repair = sti(s_ship_repair);
 
 	cout<<"Enter building material: ";
 	string material;
 	cin >> material;
 
-	cout<<"Enter building worker capacity: ";
 	int capacity;
-	cin >> capacity;
+	string s_capacity;
+	cout<<"Enter building worker capacity: ";
+	capacity = sti(s_capacity);
 
 	cout<<"Enter building location: ";
 	string location;
 	cin >> location;
 
-	warehouse maintance(width, height, material, capacity, location, ship_repair, no_truck, no_ports);
+	warehouse maintance(material, capacity, location, ship_repair, no_truck, no_ports);
 	return maintance;
 }
 
@@ -220,7 +178,6 @@ void building_print(building *house)
 	cout<<"Building ID is: "<<house->get_ID()<<endl;
 	cout<<"Building type is: "<<house->get_building_type()<<endl;
 	cout<<"Building location is: "<<house->get_branch_location()<<endl;
-	cout<<"Building area is: "<<house->get_building_area()<<endl;
 	cout<<"Building material is: "<<house->get_building_material()<<endl;
 	cout<<"Building worker capacity is: "<<house->get_worker_capacity()<<endl;
 	cout<<"Building maintance cost is: "<<house->get_maintance_cost()<<endl;	
@@ -249,8 +206,9 @@ ship ship_creation()
 	cin >> ship_name;
 
 	int inital_crew;
+	string s_inital_crew;
 	cout<<"Enter crew capacity: ";
-	cin >> inital_crew;
+	inital_crew = sti(s_inital_crew);
 
 	ship new_ship(inital_crew, ship_name);
 
@@ -264,12 +222,15 @@ carrier carrier_creation()
 	cin >> ship_name;
 
 	int inital_crew;
+	string s_inital_crew;
 	cout<<"Enter crew capacity: ";
-	cin >> inital_crew;
+	inital_crew = sti(s_inital_crew);
 
 	int storage_capacity;
+	string s_storage_capacity;
 	cout<<"Enter storage capacity: ";
-	cin >> storage_capacity;
+	storage_capacity = sti(s_storage_capacity);
+
 
 	carrier new_carrier(storage_capacity, inital_crew, ship_name);
 
@@ -283,18 +244,21 @@ escort escort_creation()
 	cin >> ship_name;
 
 	int inital_crew;
+	string s_inital_crew;
 	cout<<"Enter crew capacity: ";
-	cin >> inital_crew;
+	inital_crew = sti(s_inital_crew);
 
-	int number_soliders;
+	int number_soldiers;
+	string s_number_soldiers;
 	cout<<"Enter soldier capacity: ";
-	cin >> number_soliders;
+	number_soldiers = sti(s_number_soldiers);
 
 	int peace_weapons;
+	string s_peace_weapons;
 	cout<<"Enter the number of equiptment of peace: ";
-	cin >> peace_weapons;
+	peace_weapons = sti(s_peace_weapons);
 
-	escort new_escort(inital_crew, ship_name, number_soliders, peace_weapons);
+	escort new_escort(inital_crew, ship_name, number_soldiers, peace_weapons);
 	return new_escort; 
 }
 
@@ -316,4 +280,6 @@ void escort_print(escort* boat)
 	cout<<"Ship soldier capacity is: "<<boat->get_soldiers_amount()<<endl;
 	cout<<"Ship number of equiptment of peace is: "<<boat->get_peace_equiptment_amount()<<endl;
 }
+
+
 

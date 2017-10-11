@@ -68,10 +68,24 @@ public:
 	int get_no_buildings();
 	int get_no_office();
 	int get_no_warehouse();
-	void renevate_ship_storage_capability(int new_max_number_of_ships);
-	void rescale_building_budget(int new_max_number_of_buildings);
-	void remove_ship(int id_of_ship);
+	int get_max_no_ships();
+	int get_max_no_carrier();
+	int get_max_no_escort();
+	int get_max_no_buildings();
+	int get_max_no_office();
+	int get_max_no_warehouse();
+	ship* renevate_ship_storage_capability(int new_max_number_of_ships);
+	carrier* renevate_carrier_storage_capability(int new_max_number_of_carriers);
+	escort* renevate_escort_storage_capability(int new_max_number_of_escorts);
+	building* rescale_building_budget(int new_max_number_of_buildings);
+	office* rescale_office_budget(int new_max_number_of_offices);
+	warehouse* rescale_warehouse_budget(int new_max_number_of_warehouses);
+	ship* remove_ship(int id_of_ship);
+	carrier* remove_carrier(int id_of_carrier);
+	escort* remove_escort(int id_of_escort);
 	building* remove_building(int id_of_building);
+	office* remove_office(int id_of_office);
+	warehouse* remove_warehouse(int id_of_warehouse);
 	//~company();
 	
 };

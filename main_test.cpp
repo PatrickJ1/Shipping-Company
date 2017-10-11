@@ -8,79 +8,74 @@
 #include <iostream>
 #include <string>
 using namespace std;
-int money(cost *object)
-{
-	int money1 = object ->get_maintance_cost();
-	cout<<"money is"<<endl;
-	return money1;
-}
+extern building building_creation();
+extern office office_creation();
+extern void building_print(building*);
+extern company company_creation();
+extern warehouse warehouse_creation();
+extern void office_print(office*);
+extern void warehouse_print(warehouse*);
+extern ship ship_creation();
+extern escort escort_creation();
+extern carrier carrier_creation();
+extern void ship_print(ship*);
+extern void carrier_print(carrier*);
+extern void escort_print(escort*);
+#include <sstream>
+
 int main()
 {
-	company eco;
+	/*
+	company eco = company_creation();
 
-	//naming company and outputting name
-	
-
-	//building junk(3, 2, "stone", 3, "Paris");
-	//building Yard(2, 1, "paper", 0, "Paris-street");
-
-	//cout<<junk.get_ID()<<endl;
-	//cout<<Yard.get_ID()<<endl;
-
-	//eco.add_building(junk);
-	//eco.add_building(Yard);
-
-	building* tracker = eco.get_buildings();
-	cout<<"ID of building"<<endl;
+	building* building_storage_pointer= eco.get_buildings();
 
 
+			eco.add_building(building_creation());
+
+		
+			eco.add_building(building_creation());
+
+			cout<<"Building ID is: "<<building_storage_pointer[eco.get_no_buildings()-1].get_ID()<<endl;
+		
+		for(int i =0; i<eco.get_no_buildings(); i++)
+			{
+				building_print(& building_storage_pointer[i]);
+				cout<<endl;
+			}
+
+			building_storage_pointer = eco.rescale_building_budget(3);
+			eco.add_building(building_creation());
 
 
-	for(int i = 0 ; i < 2; i++)
-	{	building junk(3, 2, "stone", 3, "Paris");
-		eco.add_building(junk);
-		cout << (tracker[i].get_ID())<<endl;
-	}
+			building_storage_pointer = eco.remove_building(0);
+			cout<<"test"<<endl;
 
-	
-
-	/*tracker = eco.remove_building(0);
-
-	for(int i = 0 ; i < eco.get_no_buildings(); i++)
-	{
-		cout << (tracker[i].get_ID())<<endl;
-	}*/
+			for(int i =0; i<eco.get_no_buildings(); i++)
+			{
+				building_print(& building_storage_pointer[i]);
+				cout<<endl;
+			}*/
+  
 
 
-	/*company eco;
-	eco.change_company_name("eco");
-	cout<<eco.get_name()<<endl;
-	int i =0;
-	while(i ==0)
-	{
-		building junk(3, 2, "stone", 3, "Paris");
-		cout<<"enter i"<<endl;
-		cin >> i;
-		cout<<junk.get_ID()<<endl;
-	}*/
-/*office o, a;
-company eco;
+    string s = "j";
 
-building* pointer = eco.get_buildings();
+    // object from the class stringstream
+    stringstream geek(s);
 
-eco.add_building(o);
+    // The object has the value 12345 and stream
+    // it to the integer x
+    int x = -1;
+    geek >> x;
 
-cout<<pointer[0].get_no_of_meeting_rooms()<<endl;; */
+    // Now the variable x holds the value 12345
+    cout << "Value of x : " << x;
 
-
-
-
-
-
-
-//cout<<a.get_building_type()<<endl;
-	
-
-
+    cout<<3*3<<endl;
 }
+
+
+
+
 

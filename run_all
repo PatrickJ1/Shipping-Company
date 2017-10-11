@@ -1,1 +1,1 @@
-g++ ship.cpp building.cpp carrier.cpp escort.cpp warehouse.cpp office.cpp company.cpp main_test.cpp -o com
+g++ -std=c++11 ship.cpp building.cpp carrier.cpp escort.cpp warehouse.cpp office.cpp company.cpp functions.cpp main_test.cpp -o com 

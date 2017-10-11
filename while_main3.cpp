@@ -51,8 +51,6 @@ int main()
 	string command;
 	int id;
 	string s_id;
-	int data_input;
-	string s_data_input;
 
 	while(program_run == true)
 	{
@@ -158,22 +156,28 @@ int main()
 		else if(command == "resize_ship_storage")
 		{
 			cout<<"Enter new ship storage size: ";
-			data_input = sti(s_data_input);
-			ship_storage_pointer =  eco.renevate_ship_storage_capability(data_input);
+			int new_size;
+			string s_new_size;
+			new_size = sti(s_new_size);
+			ship_storage_pointer =  eco.renevate_ship_storage_capability(new_size);
 
 		}
 		else if(command == "resize_carrier_storage")
 		{
 			cout<<"Enter new carrier storage size: ";
-			data_input = sti(s_data_input);
-			carrier_storage_pointer =  eco.renevate_carrier_storage_capability(data_input);
+			int new_size;
+			string s_new_size;
+			new_size = sti(s_new_size);
+			carrier_storage_pointer =  eco.renevate_carrier_storage_capability(new_size);
 
 		}
 		else if(command == "resize_escort_storage")
 		{
 			cout<<"Enter new escort ship storage size: ";
-			data_input = sti(s_data_input);
-			escort_storage_pointer =  eco.renevate_escort_storage_capability(data_input);
+			int new_size;
+			string s_new_size;
+			new_size = sti(s_new_size);
+			escort_storage_pointer =  eco.renevate_escort_storage_capability(new_size);
 
 		}
 		else if(command == "remove_ship")
@@ -283,6 +287,7 @@ int main()
 		{
 			cout<<"Enter id of ship you wish to modify: ";
 			id = sti(s_id);
+			string new_name;
 
 			for(int i =0; i<eco.get_no_ships(); i++)
 			{
@@ -291,8 +296,8 @@ int main()
 					cout<<"Ship type is: ship"<<endl;
 					cout<<"Old name is: "<<ship_storage_pointer[i].get_ship_name()<<endl;
 					cout<<"Enter new ship name: ";
-					cin >> s_data_input;
-					ship_storage_pointer[i].change_ship_name(s_data_input);
+					cin >> new_name;
+					ship_storage_pointer[i].change_ship_name(new_name);
 				}
 			}
 
@@ -303,8 +308,8 @@ int main()
 					cout<<"Ship type is: carrier"<<endl;
 					cout<<"Old name is: "<<carrier_storage_pointer[i].get_ship_name()<<endl;
 					cout<<"Enter new ship name: ";
-					cin >> s_data_input;
-					carrier_storage_pointer[i].change_ship_name(s_data_input);
+					cin >> new_name;
+					carrier_storage_pointer[i].change_ship_name(new_name);
 				}
 			}
 
@@ -315,8 +320,8 @@ int main()
 					cout<<"Ship type is: escort ship"<<endl;
 					cout<<"Old name is: "<<escort_storage_pointer[i].get_ship_name()<<endl;
 					cout<<"Enter new ship name: ";
-					cin >> s_data_input;
-					escort_storage_pointer[i].change_ship_name(s_data_input);
+					cin >> new_name;
+					escort_storage_pointer[i].change_ship_name(new_name);
 				}
 			}
 		}
@@ -324,6 +329,8 @@ int main()
 		{
 			cout<<"Enter id of ship you wish to modify: ";
 			id = sti(s_id);
+			int new_crew_capacity;
+			string s_new_crew_capacity;
 
 			for(int i =0; i<eco.get_no_ships(); i++)
 			{
@@ -332,8 +339,8 @@ int main()
 					cout<<"Ship type is: ship"<<endl;
 					cout<<"Old crew capacity is: "<<ship_storage_pointer[i].get_crew_amount()<<endl;
 					cout<<"Enter new crew capacity: ";
-					data_input = sti(s_data_input);
-					ship_storage_pointer[i].crew_quaters_renevation(data_input);
+					new_crew_capacity = sti(s_new_crew_capacity);
+					ship_storage_pointer[i].crew_quaters_renevation(new_crew_capacity);
 				}
 			}
 
@@ -344,8 +351,8 @@ int main()
 					cout<<"Ship type is: carrier"<<endl;
 					cout<<"Old crew capacity is: "<<carrier_storage_pointer[i].get_crew_amount()<<endl;
 					cout<<"Enter new crew capacity: ";
-					data_input = sti(s_data_input);
-					carrier_storage_pointer[i].crew_quaters_renevation(data_input);
+					new_crew_capacity = sti(s_new_crew_capacity);
+					carrier_storage_pointer[i].crew_quaters_renevation(new_crew_capacity);
 				}
 			}
 
@@ -356,8 +363,8 @@ int main()
 					cout<<"Ship type is: escort ship"<<endl;
 					cout<<"Old crew capacity is: "<<escort_storage_pointer[i].get_crew_amount()<<endl;
 					cout<<"Enter new crew capacity: ";
-					data_input = sti(s_data_input);
-					escort_storage_pointer[i].crew_quaters_renevation(data_input);
+					new_crew_capacity = sti(s_new_crew_capacity);
+					escort_storage_pointer[i].crew_quaters_renevation(new_crew_capacity);
 				}
 			}
 		}
@@ -365,6 +372,8 @@ int main()
 		{
 			cout<<"Enter id of carrier you wish to modify: ";
 			id = sti(s_id);
+			int new_storage;
+			string s_new_storage;
 
 			for(int i =0; i<eco.get_no_carrier(); i++)
 			{
@@ -372,8 +381,8 @@ int main()
 				{
 					cout<<"Old storage capacity is: "<<carrier_storage_pointer[i].get_storage_capacity()<<endl;
 					cout<<"Enter new storage capacity: ";
-					data_input= sti(s_data_input);
-					carrier_storage_pointer[i].ship_capactiy_renevation(data_input);
+					new_storage = sti(s_new_storage);
+					carrier_storage_pointer[i].ship_capactiy_renevation(new_storage);
 				}
 			}
 		}
@@ -381,14 +390,16 @@ int main()
 		{
 			cout<<"Enter id of escort ship you wish to modify: ";
 			id = sti(s_id);
+			int new_soldier;
+			string s_new_soldier;
 			for(int i =0; i<eco.get_no_escort(); i++)
 			{
 				if(id == carrier_storage_pointer[i].get_ship_id())
 				{
 					cout<<"Old soldier capacity is: "<<escort_storage_pointer[i].get_soldiers_amount()<<endl;
 					cout<<"Enter new soldier capacity: ";
-					data_input = sti(s_data_input);
-					escort_storage_pointer[i].defence_center_renevation(data_input);
+					new_soldier = sti(s_new_soldier);
+					escort_storage_pointer[i].defence_center_renevation(new_soldier);
 				}
 			}
 		}
@@ -396,14 +407,16 @@ int main()
 		{
 			cout<<"Enter id of escort ship you wish to modify: ";
 			id = sti(s_id);
+			int new_peace;
+			string s_new_peace;
 			for(int i =0; i<eco.get_no_escort(); i++)
 			{
 				if(id == carrier_storage_pointer[i].get_ship_id())
 				{
 					cout<<"Old equiptment of peace capacity is: "<<escort_storage_pointer[i].get_peace_equiptment_amount()<<endl;
 					cout<<"Enter new equiptment of peace capacity: ";
-					data_input = sti(s_data_input);
-					escort_storage_pointer[i].change_peace_equiptment_amount(data_input);
+					new_peace = sti(s_new_peace);
+					escort_storage_pointer[i].change_peace_equiptment_amount(new_peace);
 				}
 			}
 		}
@@ -447,21 +460,27 @@ int main()
 		else if(command == "resize_building_storage")
 		{
 			cout<<"Enter new building storage size: ";
-			data_input = sti(s_data_input);
-			building_storage_pointer =  eco.rescale_building_budget(data_input);
+			int new_size;
+			string s_new_size;
+			new_size = sti(s_new_size);
+			building_storage_pointer =  eco.rescale_building_budget(new_size);
 
 		}
 		else if(command == "resize_office_storage")
 		{
 			cout<<"Enter new office storage size: ";
-			data_input = sti(s_data_input);
-			office_storage_pointer =  eco.rescale_office_budget(data_input);	
+			int new_size;
+			string s_new_size;
+			new_size = sti(s_new_size);
+			office_storage_pointer =  eco.rescale_office_budget(new_size);	
 		}
 		else if(command == "resize_warehouse_storage")
 		{
 			cout<<"Enter new warehouse storage size: ";
-			data_input = sti(s_data_input);
-			warehouse_storage_pointer =  eco.rescale_warehouse_budget(data_input);	
+			int new_size;
+			string s_new_size;
+			new_size = sti(s_new_size);
+			warehouse_storage_pointer =  eco.rescale_warehouse_budget(new_size);	
 		}
 		else if(command == "remove_building")
 		{
@@ -489,6 +508,7 @@ int main()
 			cout<<"Enter id of building you wish to modify: ";
 			id = sti(s_id);
 			cout<<"Building type is: ";
+			string new_location;
 			for(int i = 0; i<eco.get_no_buildings(); i++)
 			{
 				if(id == building_storage_pointer[i].get_ID())
@@ -496,8 +516,8 @@ int main()
 					cout<<building_storage_pointer[i].get_building_type()<<endl;
 					cout<<"old location is: "<<building_storage_pointer[i].get_branch_location()<<endl;
 					cout<<"Enter new location: ";
-					cin >> s_data_input;
-					building_storage_pointer[i].change_branch_location(s_data_input);
+					cin >> new_location;
+					building_storage_pointer[i].change_branch_location(new_location);
 				}
 			}
 
@@ -508,8 +528,8 @@ int main()
 					cout<<office_storage_pointer[i].get_building_type()<<endl;
 					cout<<"old location is: "<<office_storage_pointer[i].get_branch_location()<<endl;
 					cout<<"Enter new location: ";
-					cin >> s_data_input;
-					office_storage_pointer[i].change_branch_location(s_data_input);
+					cin >> new_location;
+					office_storage_pointer[i].change_branch_location(new_location);
 				}
 			}
 
@@ -520,8 +540,8 @@ int main()
 					cout<<warehouse_storage_pointer[i].get_building_type()<<endl;
 					cout<<"old location is: "<<warehouse_storage_pointer[i].get_branch_location()<<endl;
 					cout<<"Enter new location: ";
-					cin >> s_data_input;
-					warehouse_storage_pointer[i].change_branch_location(s_data_input);
+					cin >> new_location;
+					warehouse_storage_pointer[i].change_branch_location(new_location);
 				}
 			}
 
@@ -531,6 +551,8 @@ int main()
 			cout<<"Enter id of building you wish to modify: ";
 			id = sti(s_id);
 			cout<<"Building type is: ";
+			int new_worker_capacity;
+			string s_new_worker_capacity;
 
 			for(int i = 0; i<eco.get_no_buildings(); i++)
 			{
@@ -539,8 +561,8 @@ int main()
 					cout<<building_storage_pointer[i].get_building_type()<<endl;
 					cout<<"old worker capacity is: "<<building_storage_pointer[i].get_worker_capacity()<<endl;
 					cout<<"Enter new worker capacity: ";
-					data_input = sti(s_data_input);
-					building_storage_pointer[i].change_worker_capacity(data_input);
+					new_worker_capacity = sti(s_new_worker_capacity);
+					building_storage_pointer[i].change_worker_capacity(new_worker_capacity);
 				}
 			}
 
@@ -551,8 +573,8 @@ int main()
 					cout<<office_storage_pointer[i].get_building_type()<<endl;
 					cout<<"old worker capacity is: "<<office_storage_pointer[i].get_worker_capacity()<<endl;
 					cout<<"Enter new worker capacity: ";
-					data_input = sti(s_data_input);
-					office_storage_pointer[i].change_worker_capacity(data_input);
+					new_worker_capacity = sti(s_new_worker_capacity);
+					office_storage_pointer[i].change_worker_capacity(new_worker_capacity);
 				}
 			}
 
@@ -563,8 +585,8 @@ int main()
 					cout<<warehouse_storage_pointer[i].get_building_type()<<endl;
 					cout<<"old worker capacity is: "<<warehouse_storage_pointer[i].get_worker_capacity()<<endl;
 					cout<<"Enter new worker capacity: ";
-					data_input = sti(s_data_input);
-					warehouse_storage_pointer[i].change_worker_capacity(data_input);
+					new_worker_capacity = sti(s_new_worker_capacity);
+					warehouse_storage_pointer[i].change_worker_capacity(new_worker_capacity);
 				}
 			}
 		}
@@ -591,6 +613,8 @@ int main()
 				cout<<endl;
 			}
 
+			//two more for each type.
+			// link to general function which adds more if buildig is office or warhouse. if type = office
 		}
 		else if(command == "print_all_buildings")
 		{
@@ -658,14 +682,17 @@ int main()
 		{
 			cout<<"Enter id of office you wish to modify: ";
 			id = sti(s_id);
+
+			int new_office;
+			string s_new_office;
 			for(int i =0; i < eco.get_no_office(); i++)
 			{
 				if(id == office_storage_pointer[i].get_ID())
 				{
 					cout<<"old number of office spaces are: "<<office_storage_pointer[i].get_no_of_office_spaces()<<endl;
 					cout<<"Enter new number of office spaces: ";
-					data_input = sti(s_data_input);
-					office_storage_pointer[i].renevate_office_spaces(data_input);
+					new_office = sti(s_new_office);
+					office_storage_pointer[i].renevate_office_spaces(new_office);
 				}
 			}
 		}
@@ -674,14 +701,16 @@ int main()
 			cout<<"Enter id of office you wish to modify: ";
 			id = sti(s_id);
 
+			int new_meeting;
+			string s_new_meeting;
 			for(int i =0; i < eco.get_no_office(); i++)
 			{
 				if(id == office_storage_pointer[i].get_ID())
 				{
 					cout<<"old number of meeting rooms are: "<<office_storage_pointer[i].get_no_of_meeting_rooms()<<endl;
 					cout<<"Enter new number of meeting rooms: ";
-					data_input = sti(s_data_input);
-					office_storage_pointer[i].renevate_meeting_rooms(data_input);
+					new_meeting = sti(s_new_meeting);
+					office_storage_pointer[i].renevate_meeting_rooms(new_meeting);
 				}
 			}
 		}
@@ -689,14 +718,17 @@ int main()
 		{
 			cout<<"Enter id of warehouse you wish to modify: ";
 			id = sti(s_id);
+
+			int no_port;
+			string s_no_port;
 			for(int i =0; i < eco.get_no_warehouse(); i++)
 			{
 				if(id == warehouse_storage_pointer[i].get_ID())
 				{
 					cout<<"old number of ports: "<<warehouse_storage_pointer[i].get_no_ports()<<endl;
 					cout<<"Enter new number of ports: ";
-					data_input = sti(s_data_input);
-					warehouse_storage_pointer[i].change__no_ports(data_input);
+					no_port = sti(s_no_port);
+					warehouse_storage_pointer[i].change__no_ports(no_port);
 				}
 			}
 		}
@@ -705,14 +737,16 @@ int main()
 			cout<<"Enter id of warehouse you wish to modify: ";
 			id = sti(s_id);
 
+			int no_repair_stations;
+			string s_no_repair_stations;
 			for(int i =0; i < eco.get_no_warehouse(); i++)
 			{
 				if(id == warehouse_storage_pointer[i].get_ID())
 				{
 					cout<<"old number of ship repair stations: "<<warehouse_storage_pointer[i].get_no_ship_repair_stations()<<endl;
 					cout<<"Enter new number of ship repair stations: ";
-					data_input = sti(s_data_input);
-					warehouse_storage_pointer[i].change_no_ship_repair_stations(data_input);
+					no_repair_stations = sti(s_no_repair_stations);
+					warehouse_storage_pointer[i].change_no_ship_repair_stations(no_repair_stations);
 				}
 			}
 		}
@@ -720,14 +754,17 @@ int main()
 		{
 			cout<<"Enter id of warehouse you wish to modify: ";
 			id = sti(s_id);
+
+			int no_truck_bays;
+			string s_no_truck_bays;
 			for(int i =0; i < eco.get_no_warehouse(); i++)
 			{
 				if(id == warehouse_storage_pointer[i].get_ID())
 				{
 					cout<<"old number of truck loading bays: "<<warehouse_storage_pointer[i].get_no_truck_loading_bay()<<endl;
 					cout<<"Enter new number of truck loading bays: ";
-					data_input = sti(s_data_input);
-					warehouse_storage_pointer[i].change_no_truck_loading_bay(data_input);
+					no_truck_bays = sti(s_no_truck_bays);
+					warehouse_storage_pointer[i].change_no_truck_loading_bay(no_truck_bays);
 				}
 			}
 		}

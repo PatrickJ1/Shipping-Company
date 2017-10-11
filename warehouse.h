@@ -11,8 +11,7 @@ class warehouse : public building
 	int no_ports;
 public:
 	warehouse();
-	warehouse(int intial_width, int intial_height,
-		      std::string inital_building_material, 
+	warehouse(std::string inital_building_material, 
 		      int inital_worker_capacity, 
 		      std::string inital_branch_location, 
 		      int initail_no_ship_repair_stations,

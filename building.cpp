@@ -7,35 +7,21 @@ int building::currentID = 0;
 
 building::building()
 {
-	width = 10;
-	height = 10;
 	building_material = "brick";
 	worker_capacity = 3;
 	branch_location = "unknown";
 
 }
 
-building::building(int intial_width, int intial_height, string inital_building_material, 
-		 int inital_worker_capacity, string inital_branch_location)
+building::building(string inital_building_material, 
+				   int inital_worker_capacity, 
+				   string inital_branch_location)
 {
-	width = intial_width;
-	height = intial_height;
 	building_material = inital_building_material;
 	worker_capacity = inital_worker_capacity;
 	branch_location = inital_branch_location;
 	buildingID = currentID;
 	currentID++;
-}
-
-void building::change_building_dimentions(int new_width, int new_height)
-{
-	width = new_width;
-	height = new_height; 	
-}
-
-int building::get_building_area()
-{
-	return (width*height);
 }
 
 void building::change_building_material(int new_building_material)
@@ -92,6 +78,6 @@ int building::number_of_bathroom()
 
 int building::get_maintance_cost()
 {
-	return (width*height + worker_capacity*5);
+	return (worker_capacity*5);
 }
 

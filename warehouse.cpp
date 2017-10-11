@@ -11,14 +11,12 @@ warehouse::warehouse() : building()
 	no_ports = 0;
 }
 
-warehouse::warehouse(int intial_width, int intial_height,
-		             string inital_building_material, 
+warehouse::warehouse(string inital_building_material, 
 		      		 int inital_worker_capacity, 
 		      		 string inital_branch_location, 
 		      		 int initail_no_ship_repair_stations,
 		             int inital_no_truck_loading_bay,
 		             int inital_no_ports) : building(
-		             intial_width,intial_height,
 		             inital_building_material, 
 		      		 inital_worker_capacity, 
 		      		 inital_branch_location)
@@ -61,6 +59,6 @@ void warehouse::change__no_ports(int new_no_ports)
 
 int warehouse::get_maintance_cost()
 {
-	return width*height + worker_capacity*5 + no_ship_repair_stations*4
+	return worker_capacity*5 + no_ship_repair_stations*4
 		   + no_ports*3 + no_truck_loading_bay*2;
 }

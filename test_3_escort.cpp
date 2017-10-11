@@ -10,7 +10,7 @@ int main()
 
 	//ship fleet(3, "omega");
 
-	fleet.change_ship_name("omega");//testing shit lol
+	fleet.change_ship_name("omega");
 	fleet.crew_quaters_renevation(5);
 	fleet.change_peace_equiptment_amount(4);
 	fleet.defence_center_renevation(5);

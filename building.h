@@ -14,16 +14,12 @@ class building : public cost
 
 protected:
 
-	int width;
-	int height;
 	int worker_capacity;
 	
 public:
 	building();
-	building(int intial_width, int intial_height,std::string inital_building_material, 
+	building(std::string inital_building_material, 
 		     int inital_worker_capacity, std::string inital_branch_location);
-	void change_building_dimentions(int new_width, int new_height);
-	int get_building_area();
 	void change_building_material(int new_building_material);
 	std::string get_building_material();
 	void change_worker_capacity(int new_worker_capacity);
