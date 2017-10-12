@@ -5,7 +5,7 @@
 #include "building.h"
 using namespace std;
 
-//default company initialisor 
+//default company initialiser 
 company::company()
 {
 	company_name = "Vacant";
@@ -32,7 +32,7 @@ company::company()
 	//number_number_of_ports = 0;
 }
 
-//
+//takes in parameters from main function
 company::company(string inital_company_name,
 				int inital_max_number_of_ships,
 				int inital_max_number_of_carriers,
@@ -64,6 +64,7 @@ company::company(string inital_company_name,
 	current_warehouse=0;
 }
 
+//allows company name to be changed
 void company::change_company_name(string new_company_name)
 {
 	/*cout<<"Enter new compnay name below: ";
@@ -72,11 +73,14 @@ void company::change_company_name(string new_company_name)
 	company_name = new_company_name;
 }
 
+
 std::string company::get_name()
 {
 	return company_name;
 }
 
+//allows a ship to be added, provided it doesn't cause the fleet to exceed
+//the makimum number of ships
 void company::add_ship(ship new_ship)
 {
 	if(current_ship < max_number_of_ships)
@@ -118,6 +122,8 @@ void company::add_escort(escort new_escort)
 	}
 }
 
+//allows a building to be added, provided it doesn't cause the buildings to exceed
+//the maximum number   
 void company::add_building(building new_building)
 {
 	if(current_building < max_number_of_buildings)
@@ -157,6 +163,8 @@ void company::add_warehouse(warehouse new_warehouse)
 	}
 }
 
+//returns pointers of various objects, for other functions that 
+//return the maximum number alowed of each object
 ship* company::get_ships()
 {
 	return ship_store_pointer;
@@ -248,6 +256,7 @@ int company::get_max_no_warehouse()
 {
 	return max_number_of_warehouses; 
 }
+
 
 ship* company::renevate_ship_storage_capability(int new_max_number_of_ships)
 {
