@@ -5,6 +5,7 @@
 #include "building.h"
 using namespace std;
 
+//default company initialisor 
 company::company()
 {
 	company_name = "Vacant";
@@ -31,6 +32,7 @@ company::company()
 	//number_number_of_ports = 0;
 }
 
+//
 company::company(string inital_company_name,
 				int inital_max_number_of_ships,
 				int inital_max_number_of_carriers,
