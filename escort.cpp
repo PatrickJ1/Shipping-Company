@@ -10,6 +10,7 @@ escort::escort() : ship()
 	equiptment_of_peace = 0;
 }
 
+//intialises the crew capacity, ship name, soldier numbers and weapons from the main function
 escort::escort(int initial_crew_capacity, string inital_ship_name, 
 			   int initial_number_of_soldiers, int initial_eqiptment_of_peace)
 			   : ship(initial_crew_capacity, inital_ship_name)
