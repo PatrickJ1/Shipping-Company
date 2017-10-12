@@ -4,6 +4,7 @@
 #include <string>
 using namespace std;
 
+ //default escort ship initialiser
 escort::escort() : ship()
 {
 	number_of_soldiers = 0;
