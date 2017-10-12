@@ -9,9 +9,7 @@ carrier::carrier() : ship()
 	storage_capacity =0;
 }
 
-carrier::carrier(int initial_storage_capacity,int initial_crew_capacity, 
-				 string inital_ship_name) : ship(initial_crew_capacity, 
-				 								 inital_ship_name)
+carrier::carrier(int initial_storage_capacity,int initial_crew_capacity, string inital_ship_name) : ship(initial_crew_capacity, inital_ship_name)
 {
 	storage_capacity = initial_storage_capacity;
 }
