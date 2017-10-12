@@ -22,7 +22,7 @@ int carrier::get_storage_capacity()
 	return storage_capacity;
 }
 
-//allows the storage capacity to be modified
+//Allows the storage capacity to be modified
 void carrier::ship_capactiy_renevation(int new_stroage_capacity)
 {
 	storage_capacity = new_stroage_capacity;
