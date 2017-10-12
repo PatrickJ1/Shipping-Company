@@ -62,17 +62,19 @@ string building::get_branch_location()
 	return branch_location;
 }
 
-//
+//returns building ID
 int building::get_ID()
 {
 	return buildingID;
 }
 
+//returns the building type
 string building::get_building_type()
 {
 	return "building";
 }
 
+//determines the number of bathrooms based on the number of workers
 int building::number_of_bathroom()
 {
 	int no_bathroom = worker_capacity/5;
@@ -85,6 +87,7 @@ int building::number_of_bathroom()
 	return no_bathroom;
 }
 
+//determines maintenance cost
 int building::get_maintance_cost()
 {
 	return (worker_capacity*5);
