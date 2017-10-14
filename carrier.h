@@ -2,7 +2,7 @@
 #define CARRIER_H
 #include "ship.h"
 
-class carrier : public ship //inherits the public function from ship.h
+class carrier : public ship
 {
 private:
 	int storage_capacity; // 1 is equivalent to 1 container

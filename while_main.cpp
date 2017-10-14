@@ -29,6 +29,10 @@ extern void ship_print(ship*);
 extern void carrier_print(carrier*);
 extern void escort_print(escort*);
 extern int sti(string);
+extern bool id_print(bool*);
+//extern void company_creation_budget(int*, string *, int *);
+extern void budget_scale(int*, string*, int*, string);
+extern void print_budget(int*);
 
 int main()
 {
@@ -47,12 +51,19 @@ int main()
 
 	escort* escort_storage_pointer = eco.get_escort();
 
+	int budget = 50;
+	 budget = budget - eco.get_max_no_ships() - 4*eco.get_max_no_carrier() 
+	 			- 2*eco.get_max_no_escort() - eco.get_max_no_buildings() 
+	 			- 5*eco.get_max_no_office() - 5*eco.get_max_no_warehouse();
+
 	bool program_run = true;
 	string command;
 	int id;
 	string s_id;
 	int data_input;
 	string s_data_input;
+	bool id_match = false;
+	//int change_function_check;
 
 	while(program_run == true)
 	{
@@ -110,6 +121,7 @@ int main()
 			cout<<"change_number_truck_bays"<<endl;
 			cout<<"total_maintance_cost"<<endl;
 			cout<<"storage_stats"<<endl;
+			cout<<"get_current_budget"<<endl;
 			cout<<"end_program"<<endl;
 			cout<<"----end list----"<<endl;
 
@@ -157,38 +169,65 @@ int main()
 		}
 		else if(command == "resize_ship_storage")
 		{
+			budget = budget + eco.get_max_no_ships();
+			cout<<"Ships have been removed from the budget"<<endl;
+			print_budget(&budget);
 			cout<<"Enter new ship storage size: ";
-			data_input = sti(s_data_input);
+			budget_scale(&data_input, &s_data_input, &budget, "ship" );
+			//data_input = sti(s_data_input);
 			ship_storage_pointer =  eco.renevate_ship_storage_capability(data_input);
+			budget = budget - eco.get_max_no_ships();
 
 		}
 		else if(command == "resize_carrier_storage")
 		{
+			budget = budget + 4*eco.get_max_no_carrier();
+			cout<<"Carriers have been removed from the budget"<<endl;
+			print_budget(&budget);
 			cout<<"Enter new carrier storage size: ";
-			data_input = sti(s_data_input);
+			budget_scale(&data_input, &s_data_input, &budget, "carrier" );
+			//data_input = sti(s_data_input);
 			carrier_storage_pointer =  eco.renevate_carrier_storage_capability(data_input);
+			budget = budget - 4*eco.get_max_no_carrier();
 
 		}
 		else if(command == "resize_escort_storage")
 		{
+			budget = budget + 2*eco.get_max_no_escort();
+			cout<<"Escort ships have been removed from the budget"<<endl;
+			print_budget(&budget);
 			cout<<"Enter new escort ship storage size: ";
-			data_input = sti(s_data_input);
+			budget_scale(&data_input, &s_data_input, &budget, "escort" );
+			//data_input = sti(s_data_input);
 			escort_storage_pointer =  eco.renevate_escort_storage_capability(data_input);
+			budget = budget - 2*eco.get_max_no_escort();
 
 		}
 		else if(command == "remove_ship")
 		{
+			//change_function_check = eco.get_no_ships();
 			cout<<"Enter id of ship you wish to delete: ";
 			id = sti(s_id);
 
 			ship_storage_pointer = eco.remove_ship(id);
+
+			/*if(change_function_check==eco.get_no_ships())
+			{
+				cout<<"No match of id"<<endl;
+			}*/
 		}
 		else if(command == "remove_carrier")
 		{
+			//change_function_check = eco.get_no_carrier();
 			cout<<"Enter id of carrier you wish to delete: ";
 			id = sti(s_id);
 
 			carrier_storage_pointer = eco.remove_carrier(id);
+
+			/*if(change_function_check==eco.get_no_carrier())
+			{
+				cout<<"No match of id"<<endl;
+			}*/
 		}
 		else if(command == "remove_escort")
 		{
@@ -218,6 +257,12 @@ int main()
 				escort_print(&escort_storage_pointer[i]);
 				cout<<endl;
 			}
+
+			if(eco.get_no_ships() + eco.get_no_carrier() + eco.get_no_escort() == 0)
+			{
+				cout<<"You have no ships of any type"<<endl;
+			}
+
 		}
 		else if(command == "print_all_ships")
 		{
@@ -225,6 +270,11 @@ int main()
 			{
 				ship_print(&ship_storage_pointer[i]);
 				cout<<endl;
+			}
+
+			if(eco.get_no_ships() == 0)
+			{
+				cout<<"You have no ships"<<endl;
 			}
 		}
 		else if(command == "print_all_carriers")
@@ -235,6 +285,11 @@ int main()
 				carrier_print(&carrier_storage_pointer[i]);
 				cout<<endl;
 			}
+
+			if(eco.get_no_carrier() == 0)
+			{
+				cout<<"You have no carriers"<<endl;
+			}
 		}
 		else if(command == "print_all_escorts")
 		{
@@ -243,6 +298,11 @@ int main()
 				ship_print(&escort_storage_pointer[i]);
 				escort_print(&escort_storage_pointer[i]);
 				cout<<endl;
+			}
+
+			if(eco.get_no_escort() == 0)
+			{
+				cout<<"You have no escort ships"<<endl;
 			}
 		}
 		else if(command == "print_id_ships")
@@ -256,6 +316,7 @@ int main()
 				{
 					ship_print(&ship_storage_pointer[i]);
 					cout<<endl;
+					id_match = true;
 				}
 			}
 
@@ -266,6 +327,7 @@ int main()
 					ship_print(&carrier_storage_pointer[i]);
 					carrier_print(&carrier_storage_pointer[i]);
 					cout<<endl;
+					id_match = true;
 				}
 			}
 
@@ -276,8 +338,11 @@ int main()
 					ship_print(&escort_storage_pointer[i]);
 					escort_print(&escort_storage_pointer[i]);
 					cout<<endl;
+					id_match = true;
 				}
 			}
+
+			id_match = id_print(&id_match);
 		}
 		else if(command == "change_ship_name")
 		{
@@ -293,6 +358,7 @@ int main()
 					cout<<"Enter new ship name: ";
 					cin >> s_data_input;
 					ship_storage_pointer[i].change_ship_name(s_data_input);
+					id_match = true;
 				}
 			}
 
@@ -305,6 +371,7 @@ int main()
 					cout<<"Enter new ship name: ";
 					cin >> s_data_input;
 					carrier_storage_pointer[i].change_ship_name(s_data_input);
+					id_match = true;
 				}
 			}
 
@@ -317,8 +384,11 @@ int main()
 					cout<<"Enter new ship name: ";
 					cin >> s_data_input;
 					escort_storage_pointer[i].change_ship_name(s_data_input);
+					id_match = true;
 				}
 			}
+
+			id_match = id_print(&id_match);
 		}
 		else if(command == "change_ship_crew_capacity")
 		{
@@ -334,6 +404,7 @@ int main()
 					cout<<"Enter new crew capacity: ";
 					data_input = sti(s_data_input);
 					ship_storage_pointer[i].crew_quaters_renevation(data_input);
+					id_match = true;
 				}
 			}
 
@@ -346,6 +417,7 @@ int main()
 					cout<<"Enter new crew capacity: ";
 					data_input = sti(s_data_input);
 					carrier_storage_pointer[i].crew_quaters_renevation(data_input);
+					id_match = true;
 				}
 			}
 
@@ -358,8 +430,11 @@ int main()
 					cout<<"Enter new crew capacity: ";
 					data_input = sti(s_data_input);
 					escort_storage_pointer[i].crew_quaters_renevation(data_input);
+					
 				}
-			}
+			} 
+
+			id_match = id_print(&id_match);
 		}
 		else if(command == "change_carrier_storage")
 		{
@@ -374,8 +449,11 @@ int main()
 					cout<<"Enter new storage capacity: ";
 					data_input= sti(s_data_input);
 					carrier_storage_pointer[i].ship_capactiy_renevation(data_input);
+					id_match = true;
 				}
 			}
+
+			id_match = id_print(&id_match);
 		}
 		else if(command == "change_soldier_capacity")
 		{
@@ -389,8 +467,11 @@ int main()
 					cout<<"Enter new soldier capacity: ";
 					data_input = sti(s_data_input);
 					escort_storage_pointer[i].defence_center_renevation(data_input);
+					id_match = true;
 				}
 			}
+
+			id_match = id_print(&id_match);
 		}
 		else if(command == "change_peace_capacity")
 		{
@@ -404,8 +485,11 @@ int main()
 					cout<<"Enter new equiptment of peace capacity: ";
 					data_input = sti(s_data_input);
 					escort_storage_pointer[i].change_peace_equiptment_amount(data_input);
+					id_match = true;
 				}
 			}
+
+			id_match = id_print(&id_match);
 		}
 		else if(command == "add_building")
 		{
@@ -446,22 +530,37 @@ int main()
 		}
 		else if(command == "resize_building_storage")
 		{
+			budget = budget + eco.get_max_no_buildings();
+			cout<<"Buildings have been removed from the budget"<<endl;
+			print_budget(&budget);
 			cout<<"Enter new building storage size: ";
-			data_input = sti(s_data_input);
+			budget_scale(&data_input, &s_data_input, &budget, "building" );
+			//data_input = sti(s_data_input);
 			building_storage_pointer =  eco.rescale_building_budget(data_input);
+			budget = budget - eco.get_max_no_buildings();
 
 		}
 		else if(command == "resize_office_storage")
 		{
+			budget = budget + 5*eco.get_max_no_office();
+			cout<<"Offices have been removed from the budget"<<endl;
+			print_budget(&budget);
 			cout<<"Enter new office storage size: ";
-			data_input = sti(s_data_input);
+			budget_scale(&data_input, &s_data_input, &budget, "office" );
+			//data_input = sti(s_data_input);
 			office_storage_pointer =  eco.rescale_office_budget(data_input);	
+			budget = budget - 5*eco.get_max_no_office();
 		}
 		else if(command == "resize_warehouse_storage")
 		{
+			budget = budget + 5*eco.get_max_no_warehouse();
+			cout<<"Warehouses have been removed from the budget"<<endl;
+			print_budget(&budget);
 			cout<<"Enter new warehouse storage size: ";
-			data_input = sti(s_data_input);
+			budget_scale(&data_input, &s_data_input, &budget,"warehouse");
+			//data_input = sti(s_data_input);
 			warehouse_storage_pointer =  eco.rescale_warehouse_budget(data_input);	
+			budget = budget - 5*eco.get_max_no_warehouse();
 		}
 		else if(command == "remove_building")
 		{
@@ -498,6 +597,7 @@ int main()
 					cout<<"Enter new location: ";
 					cin >> s_data_input;
 					building_storage_pointer[i].change_branch_location(s_data_input);
+					id_match = true;
 				}
 			}
 
@@ -510,6 +610,7 @@ int main()
 					cout<<"Enter new location: ";
 					cin >> s_data_input;
 					office_storage_pointer[i].change_branch_location(s_data_input);
+					id_match = true;
 				}
 			}
 
@@ -522,8 +623,11 @@ int main()
 					cout<<"Enter new location: ";
 					cin >> s_data_input;
 					warehouse_storage_pointer[i].change_branch_location(s_data_input);
+					id_match = true;
 				}
 			}
+
+			id_match = id_print(&id_match);
 
 		}
 		else if(command == "change_building_worker_capacity")
@@ -541,6 +645,7 @@ int main()
 					cout<<"Enter new worker capacity: ";
 					data_input = sti(s_data_input);
 					building_storage_pointer[i].change_worker_capacity(data_input);
+					id_match = true;
 				}
 			}
 
@@ -553,6 +658,7 @@ int main()
 					cout<<"Enter new worker capacity: ";
 					data_input = sti(s_data_input);
 					office_storage_pointer[i].change_worker_capacity(data_input);
+					id_match = true;
 				}
 			}
 
@@ -565,8 +671,11 @@ int main()
 					cout<<"Enter new worker capacity: ";
 					data_input = sti(s_data_input);
 					warehouse_storage_pointer[i].change_worker_capacity(data_input);
+					id_match = true;
 				}
 			}
+
+			id_match = id_print(&id_match);
 		}
 		else if(command == "print_all_type_buildings")
 		{
@@ -591,6 +700,11 @@ int main()
 				cout<<endl;
 			}
 
+			if(eco.get_no_buildings() + eco.get_no_office() + eco.get_no_warehouse() == 0)
+			{
+				cout<<"You have no buildings of any type"<<endl;
+			}
+
 		}
 		else if(command == "print_all_buildings")
 		{
@@ -598,6 +712,11 @@ int main()
 			{
 				building_print(& building_storage_pointer[i]);
 				cout<<endl;
+			}
+
+			if(eco.get_no_buildings() == 0)
+			{
+				cout<<"You have no buildings"<<endl;
 			}
 		}
 		else if(command == "print_all_offices")
@@ -609,6 +728,11 @@ int main()
 				office_print(& office_storage_pointer[i]);
 				cout<<endl;
 			}
+
+			if(eco.get_no_office() == 0)
+			{
+				cout<<"You have no offices"<<endl;
+			}
 		}
 		else if(command == "print_all_warehouses")
 		{
@@ -617,6 +741,11 @@ int main()
 				building_print(& warehouse_storage_pointer[i]);
 				warehouse_print(& warehouse_storage_pointer[i]);
 				cout<<endl;
+			}
+
+			if(eco.get_no_warehouse() == 0)
+			{
+				cout<<"You have no warehouses"<<endl;
 			}
 		}
 		else if(command == "print_id_building")
@@ -630,6 +759,7 @@ int main()
 				{
 					building_print(& building_storage_pointer[i]);
 					cout<<endl;
+					id_match = true;
 				}
 			}
 
@@ -641,6 +771,7 @@ int main()
 					building_print(& office_storage_pointer[i]);
 					office_print(& office_storage_pointer[i]);
 					cout<<endl;
+					id_match = true;
 				}
 			}
 
@@ -651,8 +782,11 @@ int main()
 					building_print(& warehouse_storage_pointer[i]);
 					warehouse_print(& warehouse_storage_pointer[i]);
 					cout<<endl;
+					id_match = true;
 				}
 			}
+
+			id_match = id_print(&id_match);
 		}
 		else if(command == "change_office_space")
 		{
@@ -666,8 +800,11 @@ int main()
 					cout<<"Enter new number of office spaces: ";
 					data_input = sti(s_data_input);
 					office_storage_pointer[i].renevate_office_spaces(data_input);
+					id_match = true;
 				}
 			}
+
+			id_match = id_print(&id_match);
 		}
 		else if(command == "change_meeting_room_no")
 		{
@@ -682,8 +819,11 @@ int main()
 					cout<<"Enter new number of meeting rooms: ";
 					data_input = sti(s_data_input);
 					office_storage_pointer[i].renevate_meeting_rooms(data_input);
+					id_match = true;
 				}
 			}
+
+			id_match = id_print(&id_match);
 		}
 		else if(command == "change_number_of_ports")
 		{
@@ -697,8 +837,11 @@ int main()
 					cout<<"Enter new number of ports: ";
 					data_input = sti(s_data_input);
 					warehouse_storage_pointer[i].change__no_ports(data_input);
+					id_match = true;
 				}
 			}
+
+			id_match = id_print(&id_match);
 		}
 		else if(command == "change_number_of_repair_stations")
 		{
@@ -713,8 +856,12 @@ int main()
 					cout<<"Enter new number of ship repair stations: ";
 					data_input = sti(s_data_input);
 					warehouse_storage_pointer[i].change_no_ship_repair_stations(data_input);
+					id_match = true;
 				}
 			}
+
+
+			id_match = id_print(&id_match);
 		}
 		else if(command == "change_number_truck_bays")
 		{
@@ -728,8 +875,11 @@ int main()
 					cout<<"Enter new number of truck loading bays: ";
 					data_input = sti(s_data_input);
 					warehouse_storage_pointer[i].change_no_truck_loading_bay(data_input);
+					id_match = true;
 				}
 			}
+
+			id_match = id_print(&id_match);
 		}
 		else if(command == "total_maintance_cost")
 		{
@@ -786,10 +936,24 @@ int main()
 			cout<<"escort ship storage capacity is:"<<eco.get_max_no_escort()<<endl;
 			cout<<"Currently "<<eco.get_no_escort()<<" stored"<<endl<<endl;
 		}
+		else if(command == "get_current_budget")
+		{
+			print_budget(&budget);
+		}
 		else
 		{
 			cout<<"Error"<<endl<<
 			"Input does not match any known commands"<<endl;
 		}
 	}
+	
+	//eco.~company();
+	building_storage_pointer = NULL;
+	office_storage_pointer = NULL;
+	warehouse_storage_pointer = NULL ;
+	ship_storage_pointer = NULL;
+	carrier_storage_pointer = NULL;
+	escort_storage_pointer = NULL;
+
+	
 }

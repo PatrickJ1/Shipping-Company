@@ -8,6 +8,7 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <cstddef>
 using namespace std;
 int sti(string general_string)
 {
@@ -17,58 +18,133 @@ int sti(string general_string)
 		cin >> general_string;
 		stringstream convert(general_string);
 		convert >> general_int;
+		size_t found = general_string.find_first_not_of("0123456789 ");
+		if(found != string::npos)
+		{
+			general_int = -1;
+		}
 		if(general_int<0)
 		{
 			cout<<"Enter a number 0 or greater"<<endl;
-			cout<<"Re enter number:";
+			cout<<"Re enter number: ";
 		}
 	}while(general_int<0);
 
 }
+
+void budget_scale(int *int_creation, string * string_creation, int *budget, string type)
+{
+	int multiply;
+
+	if((type == "building") || (type == "ship"))
+		{
+			multiply = 1;
+			//cout<<multiply<<endl;
+		}
+		else if((type == "office") || (type == "warehouse"))
+		{
+			multiply = 5;
+			//cout<<multiply<<endl;
+		}
+		else if(type == "escort")
+		{
+			multiply = 2;
+			//cout<<multiply<<endl;
+		}
+		else if(type == "carrier")
+		{
+			multiply = 4;
+			//cout<<multiply<<endl;
+		}
+
+	do
+	{
+		*int_creation= sti(*string_creation);
+		//cout<<*int_creation<<endl;
+
+		if((*budget-multiply*int_creation[0]) < 0)
+		{
+			cout<<"Exceeds budget"<<endl;
+			cout<<"Current budget is: "<<*budget<<endl;
+			cout<<"Re enter number: ";
+		}
+		//cout<<multipy<<endl;
+		//cout<<*budget - multiply*int_creation[0]<<endl;
+		//cout<<50 -55<<endl;
+	}while((budget[0]-multiply*int_creation[0]) < 0);
+}
+
+void print_budget(int* budget)
+{
+	cout<<"Current budget is: "<<*budget<<endl;	
+}
+
+
 company company_creation()
 {
+	int budget = 50;
 	cout<<"Shipping Company creation:"<<endl
 		<<"please enter company name: ";
 	string inital_company_name;
 	cin >> inital_company_name;
 
 	cout<<"----Limited budget----"<<endl<<endl;
-	cout<<"----Inital max storage capacity----"<<endl;
+	cout<<"Your budget is: 50"<<endl;
+	cout<<"You pay initialy for the creation of the storage capacity."<<endl;
+	cout<<"Then adding to the capacity afterwards is ''free''."<<endl;
+	cout<<"buildings cost: 1"<<endl;
+	cout<<"office cost: 5"<<endl;
+	cout<<"warehouse cost 5"<<endl;
+	cout<<"ships cost: 1"<<endl;
+	cout<<"carrier cost: 4"<<endl;
+	cout<<"escort ship cost: 2"<<endl;
+	cout<<"----Initial max storage capacity----"<<endl;
 
 
 	int inital_building_capacity;
 	string s_inital_building_capacity;
-	cout<<"Enter inital general building capacity: ";
-	inital_building_capacity = sti(s_inital_building_capacity);
-	
-	
+	cout<<"Enter building capacity: ";
+	budget_scale(&inital_building_capacity, &s_inital_building_capacity, &budget, "building");
+	budget = budget - inital_building_capacity;
+	print_budget(&budget);
+
 
 	int inital_office_capacity;
 	string s_inital_office_capacity;
-	cout<<"Enter inital office capacity: ";
-	inital_office_capacity = sti(s_inital_office_capacity);
+	cout<<"Enter office capacity: ";
+	budget_scale(&inital_office_capacity, &s_inital_office_capacity, &budget, "office");
+	budget = budget - inital_office_capacity*5;
+	print_budget(&budget);
 	
 
 	int inital_warehouse_capacity;
 	string s_inital_warehouse_capacity;
-	cout<<"Enter inital warehouse capacity: ";
-	inital_warehouse_capacity = sti(s_inital_warehouse_capacity);
+	cout<<"Enter warehouse capacity: ";
+	budget_scale(&inital_warehouse_capacity, &s_inital_warehouse_capacity, &budget, "warehouse");
+	budget = budget - inital_warehouse_capacity*5;
+	print_budget(&budget);
 	
 	int inital_ship_capacity;
 	string s_inital_ship_capacity;
-	cout<<"Enter inital general ship capacity: ";
-	inital_ship_capacity = sti(s_inital_ship_capacity);
+	cout<<"Enter general ship capacity: ";
+	budget_scale(&inital_ship_capacity, &s_inital_ship_capacity, &budget, "ship");
+	budget = budget - inital_ship_capacity;
+	print_budget(&budget);
 
 	int inital_carrier_capacity;
 	string s_inital_carrier_capacity;
-	cout<<"Enter inital carrier capacity: ";
-	inital_carrier_capacity = sti(s_inital_carrier_capacity);
+	cout<<"Enter carrier capacity: ";
+	budget_scale(&inital_carrier_capacity, &s_inital_carrier_capacity, &budget, "carrier");
+	budget = budget - inital_carrier_capacity *4;
+	print_budget(&budget);
 
 	int inital_escort_capacity;
 	string s_inital_escort_capacity;
-	cout<<"Enter inital escort ship capacity: ";
-	inital_escort_capacity = sti(s_inital_escort_capacity);
-	
+	cout<<"Enter escort ship capacity: ";
+	budget_scale(&inital_escort_capacity, &s_inital_escort_capacity, &budget, "escort");
+	budget = budget - inital_escort_capacity *2;
+	print_budget(&budget);	
+
 	company eco(inital_company_name, 
 				inital_ship_capacity, 
 				inital_carrier_capacity,
@@ -280,6 +356,17 @@ void escort_print(escort* boat)
 	cout<<"Ship soldier capacity is: "<<boat->get_soldiers_amount()<<endl;
 	cout<<"Ship number of equiptment of peace is: "<<boat->get_peace_equiptment_amount()<<endl;
 }
+
+bool id_print(bool *id_match)
+{
+	if(*id_match == false)
+	{
+		cout<<"No match of id"<<endl;
+	}
+
+	return false;
+}
+
 
 
 

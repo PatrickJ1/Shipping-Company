@@ -4,19 +4,18 @@
 #include <string>
 #include "cost.h"
 
-//abstract class for the different types of buildings; office & warehouse
-class building : public cost //inherits the public function from cost.h
+class building : public cost
 {
-	//initializing variables 
+	
 	std::string building_material;
 	std::string branch_location;
 	int buildingID;
 	static int currentID;
 
 protected:
+
 	int worker_capacity;
 	
-	//initializing functions
 public:
 	building();
 	building(std::string inital_building_material, 

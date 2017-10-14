@@ -86,7 +86,8 @@ public:
 	building* remove_building(int id_of_building);
 	office* remove_office(int id_of_office);
 	warehouse* remove_warehouse(int id_of_warehouse);
-	//~company();
+	~company();
+	
 	
 };
 #endif 

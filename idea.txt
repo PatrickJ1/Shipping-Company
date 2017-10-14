@@ -1,0 +1,10 @@
+have a budget to purchase outrigth (ignores maintance cost)
+eg 50 budget (probs in millions)
+
+say ship cost 1
+carrier cost 4
+escort cost 2
+
+building cost 1
+office cost 5
+warehouse cost 5

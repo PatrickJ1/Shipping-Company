@@ -5,7 +5,6 @@
 #include "building.h"
 using namespace std;
 
-//default company initialiser 
 company::company()
 {
 	company_name = "Vacant";
@@ -32,7 +31,6 @@ company::company()
 	//number_number_of_ports = 0;
 }
 
-//takes in parameters from main function
 company::company(string inital_company_name,
 				int inital_max_number_of_ships,
 				int inital_max_number_of_carriers,
@@ -64,7 +62,6 @@ company::company(string inital_company_name,
 	current_warehouse=0;
 }
 
-//allows company name to be changed
 void company::change_company_name(string new_company_name)
 {
 	/*cout<<"Enter new compnay name below: ";
@@ -73,14 +70,11 @@ void company::change_company_name(string new_company_name)
 	company_name = new_company_name;
 }
 
-
 std::string company::get_name()
 {
 	return company_name;
 }
 
-//allows a ship to be added, provided it doesn't cause the fleet to exceed
-//the makimum number of ships
 void company::add_ship(ship new_ship)
 {
 	if(current_ship < max_number_of_ships)
@@ -122,8 +116,6 @@ void company::add_escort(escort new_escort)
 	}
 }
 
-//allows a building to be added, provided it doesn't cause the buildings to exceed
-//the maximum number   
 void company::add_building(building new_building)
 {
 	if(current_building < max_number_of_buildings)
@@ -163,8 +155,6 @@ void company::add_warehouse(warehouse new_warehouse)
 	}
 }
 
-//returns pointers of various objects, for other functions that 
-//return the maximum number alowed of each object
 ship* company::get_ships()
 {
 	return ship_store_pointer;
@@ -257,10 +247,9 @@ int company::get_max_no_warehouse()
 	return max_number_of_warehouses; 
 }
 
-
 ship* company::renevate_ship_storage_capability(int new_max_number_of_ships)
 {
-	if(new_max_number_of_ships>0)
+	if(new_max_number_of_ships>=0)
 	{
 		if(current_ship<=new_max_number_of_ships) //make adjustment <= on all
 		{
@@ -287,13 +276,13 @@ ship* company::renevate_ship_storage_capability(int new_max_number_of_ships)
 	}
 	else
 	{
-		cout<<"allows atleast one"<<endl;
+		cout<<"You have zero ships"<<endl;
 	}
 }
 
 carrier* company::renevate_carrier_storage_capability(int new_max_number_of_carriers)
 {
-	if(new_max_number_of_carriers>0)
+	if(new_max_number_of_carriers>=0)
 	{
 
 
@@ -322,14 +311,14 @@ carrier* company::renevate_carrier_storage_capability(int new_max_number_of_carr
 	}
 	else
 	{
-		cout<<"alwas allows 1"<<endl;
+		cout<<"You have zero carriers"<<endl;
 		return carrier_store_pointer;
 	}
 }
 
 escort* company::renevate_escort_storage_capability(int new_max_number_of_escorts)
 {
-	if(new_max_number_of_escorts>0)
+	if(new_max_number_of_escorts>=0)
 	{
 		if(current_escort<=max_number_of_escorts)
 		{
@@ -356,14 +345,14 @@ escort* company::renevate_escort_storage_capability(int new_max_number_of_escort
 	}
 	else
 	{
-		cout<<"always allows atleast one escort"<<endl;
+		cout<<"You have zero escort ships"<<endl;
 		return escort_store_pointer;
 	}
 }
 
 building* company::rescale_building_budget(int new_max_number_of_buildings)
 {
-	if(new_max_number_of_buildings>0)
+	if(new_max_number_of_buildings>=0)
 	{
 		if(current_building<=new_max_number_of_buildings)
 		{
@@ -391,7 +380,7 @@ building* company::rescale_building_budget(int new_max_number_of_buildings)
 	}
 	else
 	{
-		cout<<"budget always allows for atleast one house"<<endl;
+		cout<<"You have zero buildings"<<endl;
 		return building_store_pointer;
 	}
 	
@@ -399,7 +388,7 @@ building* company::rescale_building_budget(int new_max_number_of_buildings)
 
 office* company::rescale_office_budget(int new_max_number_of_offices)
 {
-	if(new_max_number_of_offices>0)
+	if(new_max_number_of_offices>=0)
 	{
 		if(current_office<=new_max_number_of_offices)
 		{
@@ -421,7 +410,7 @@ office* company::rescale_office_budget(int new_max_number_of_offices)
 		}
 		else
 		{
-			cout<<"Remove office before scaling down"<<endl;
+			cout<<"You have zero offices"<<endl;
 			return office_store_pointer;
 		}
 	}
@@ -435,7 +424,7 @@ office* company::rescale_office_budget(int new_max_number_of_offices)
 
 warehouse* company::rescale_warehouse_budget(int new_max_number_of_warehouses)
 {
-	if(new_max_number_of_warehouses>0)
+	if(new_max_number_of_warehouses>=0)
 	{
 		if(current_warehouse<=new_max_number_of_warehouses)
 		{
@@ -463,7 +452,7 @@ warehouse* company::rescale_warehouse_budget(int new_max_number_of_warehouses)
 	}
 	else
 	{
-		cout<<"budget always allows for atleast one warehouse"<<endl;
+		cout<<"you have zero warehouses"<<endl;
 		return warehouse_store_pointer;
 	}
 	
@@ -477,12 +466,14 @@ ship* company::remove_ship(int id_of_ship)
 		temp_pointer = new ship[max_number_of_ships];
 		int old_current_ship = current_ship;
 		int keep_positon =0;
+		bool id_match = false;
 
 		for (int i = 0; i < old_current_ship; i++)
 		{
 			if(ship_store_pointer[i].get_ship_id() != id_of_ship)
 			{
 				temp_pointer[i+keep_positon] = ship_store_pointer[i];
+				
 
 			}
 			else
@@ -491,7 +482,13 @@ ship* company::remove_ship(int id_of_ship)
 
 				cout<<"ship of id "<<id_of_ship<<"has been removed"<<endl;
 				keep_positon--;
+				id_match = true;
 			}
+		}
+
+		if(id_match == false)
+		{
+			cout<<"No match of id"<<endl;
 		}
 
 		delete[] ship_store_pointer;
@@ -515,6 +512,7 @@ carrier* company::remove_carrier(int id_of_carrier)
 		temp_pointer = new carrier[max_number_of_carriers];
 		int old_current_carrier = current_carrier;
 		int keep_positon =0;
+		bool id_match = false;
 
 		for (int i = 0; i < old_current_carrier; i++)
 		{
@@ -529,7 +527,13 @@ carrier* company::remove_carrier(int id_of_carrier)
 
 				cout<<"carrier of id "<<id_of_carrier<<"has been removed"<<endl;
 				keep_positon--;
+				id_match = true;
 			}
+		}
+
+		if(id_match == false)
+		{
+			cout<<"No match of id"<<endl;
 		}
 
 		delete[] carrier_store_pointer;
@@ -553,6 +557,7 @@ escort* company::remove_escort(int id_of_escort)
 		temp_pointer = new escort[max_number_of_escorts];
 		int old_current_escort = current_escort;
 		int keep_positon =0;
+		bool id_match = false;
 
 		for (int i = 0; i < old_current_escort; i++)
 		{
@@ -567,7 +572,13 @@ escort* company::remove_escort(int id_of_escort)
 
 				cout<<"escort of id "<<id_of_escort<<"has been removed"<<endl;
 				keep_positon--;
+				id_match = true;
 			}
+		}
+
+		if(id_match == false)
+		{
+			cout<<"No match of id"<<endl;
 		}
 
 		delete[] escort_store_pointer;
@@ -590,6 +601,7 @@ building* company::remove_building(int id_of_building)
 		temp_pointer = new building[max_number_of_buildings];
 		int old_current_building = current_building;
 		int keep_positon =0;
+		bool id_match = false;
 
 		for (int i = 0; i < old_current_building; i++)
 		{
@@ -603,8 +615,14 @@ building* company::remove_building(int id_of_building)
 
 				cout<<"building of id "<<id_of_building<<"has been removed"<<endl;
 				keep_positon--;
+				id_match = true;
 
 			}
+		}
+
+		if(id_match == false)
+		{
+			cout<<"No match of id"<<endl;
 		}
 
 		delete[] building_store_pointer;
@@ -628,6 +646,7 @@ office* company::remove_office(int id_of_office)
 		temp_pointer = new office[max_number_of_offices];
 		int old_current_office = current_office;
 		int keep_positon =0;
+		bool id_match = false;
 
 		for (int i = 0; i < old_current_office; i++)
 		{
@@ -641,8 +660,14 @@ office* company::remove_office(int id_of_office)
 
 				cout<<"office of id "<<id_of_office<<"has been removed"<<endl;
 				keep_positon--;
+				id_match = true;
 
 			}
+		}
+
+		if(id_match == false)
+		{
+			cout<<"No match of id"<<endl;
 		}
 
 		delete[] office_store_pointer;
@@ -666,6 +691,7 @@ warehouse* company::remove_warehouse(int id_of_warehouse)
 		temp_pointer = new warehouse[max_number_of_warehouses];
 		int old_current_warehouse = current_warehouse;
 		int keep_positon =0;
+		bool id_match = false;
 
 		for (int i = 0; i < old_current_warehouse; i++)
 		{
@@ -679,8 +705,14 @@ warehouse* company::remove_warehouse(int id_of_warehouse)
 
 				cout<<"warehouse of id "<<id_of_warehouse<<"has been removed"<<endl;
 				keep_positon--;
+				id_match = true;
 
 			}
+		}
+
+		if(id_match == false)
+		{
+			cout<<"No match of id"<<endl;
 		}
 
 		delete[] warehouse_store_pointer;
@@ -694,4 +726,21 @@ warehouse* company::remove_warehouse(int id_of_warehouse)
 		cout<<"You already have no warehouses"<<endl;
 		return warehouse_store_pointer;
 	}
+}
+
+company::~company()
+{
+	delete[] ship_store_pointer;
+	delete[] carrier_store_pointer;
+	delete[] escort_store_pointer;
+	delete[] building_store_pointer;
+	delete[] office_store_pointer;
+	delete[] warehouse_store_pointer;
+
+	/*ship_store_pointer= NULL;
+	carrier_store_pointer= NULL;
+	escort_store_pointer= NULL;
+	building_store_pointer= NULL;
+	office_store_pointer= NULL;
+	warehouse_store_pointer= NULL;*/
 }
