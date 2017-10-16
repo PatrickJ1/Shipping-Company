@@ -83,7 +83,8 @@ void print_budget(int* budget)
 	cout<<"Current budget is: "<<*budget<<endl;	
 }
 
-
+/*this code prints all the text prompts which walk the user
+through the process of creating a company*/ 
 company company_creation()
 {
 	int budget = 50;
@@ -161,7 +162,8 @@ company company_creation()
 
 	return eco;
 }
-
+/*walks user through building creation process.
+the same is carried out specifically for warehouses and offices */
 building building_creation()
 {
 	cout<<"Building creation:"<<endl;
@@ -253,6 +255,8 @@ warehouse warehouse_creation()
 	return maintance;
 }
 
+/* prints any individual object's data points for each of the
+general building object and each of its types*/
 void building_print(building *house)
 {
 	cout<<"Building ID is: "<<house->get_ID()<<endl;
