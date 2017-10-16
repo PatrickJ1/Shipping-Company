@@ -5,6 +5,7 @@
 #include "building.h"
 using namespace std;
 
+//default company initialiser 
 company::company()
 {
 	company_name = "Vacant";
@@ -31,6 +32,7 @@ company::company()
 	//number_number_of_ports = 0;
 }
 
+//takes in parameters from main function
 company::company(string inital_company_name,
 				int inital_max_number_of_ships,
 				int inital_max_number_of_carriers,
@@ -62,6 +64,7 @@ company::company(string inital_company_name,
 	current_warehouse=0;
 }
 
+//allows company name to be changed
 void company::change_company_name(string new_company_name)
 {
 	/*cout<<"Enter new compnay name below: ";
@@ -75,6 +78,8 @@ std::string company::get_name()
 	return company_name;
 }
 
+//allows a ship to be added, provided it doesn't cause the fleet to exceed
+//the makimum number of ships
 void company::add_ship(ship new_ship)
 {
 	if(current_ship < max_number_of_ships)
@@ -116,6 +121,8 @@ void company::add_escort(escort new_escort)
 	}
 }
 
+//allows a building to be added, provided it doesn't cause the 
+//buildings to exceed the maximum number 
 void company::add_building(building new_building)
 {
 	if(current_building < max_number_of_buildings)
@@ -155,6 +162,8 @@ void company::add_warehouse(warehouse new_warehouse)
 	}
 }
 
+//the code below returns pointers of various objects, for other functions that 
+//return the maximum number alowed of each object
 ship* company::get_ships()
 {
 	return ship_store_pointer;
@@ -247,6 +256,8 @@ int company::get_max_no_warehouse()
 	return max_number_of_warehouses; 
 }
 
+/*updates ship storage capacity, ensuring a
+valid number is entered*/
 ship* company::renevate_ship_storage_capability(int new_max_number_of_ships)
 {
 	if(new_max_number_of_ships>=0)
@@ -350,6 +361,8 @@ escort* company::renevate_escort_storage_capability(int new_max_number_of_escort
 	}
 }
 
+/* allows for an increase in the number of buildings
+ensuring a valid number is entered */ 
 building* company::rescale_building_budget(int new_max_number_of_buildings)
 {
 	if(new_max_number_of_buildings>=0)
@@ -458,6 +471,9 @@ warehouse* company::rescale_warehouse_budget(int new_max_number_of_warehouses)
 	
 }
 
+/* This function deletes a ship using its pointer and
+serching for a matching Id. A message is printed
+announcing the success of the process */
 ship* company::remove_ship(int id_of_ship)
 {
 	if(current_ship != 0)
@@ -593,6 +609,9 @@ escort* company::remove_escort(int id_of_escort)
 	}
 }
 
+/* This function deletes a building using its pointer and
+serching for a matching Id. A message is printed
+announcing the success of the process */
 building* company::remove_building(int id_of_building)
 {
 	if(current_building != 0)
@@ -728,6 +747,7 @@ warehouse* company::remove_warehouse(int id_of_warehouse)
 	}
 }
 
+//destructor function, for when the program is terminated
 company::~company()
 {
 	delete[] ship_store_pointer;
