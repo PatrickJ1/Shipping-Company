@@ -32,6 +32,9 @@ int sti(string general_string)
 
 }
 
+/* creates a budget for the company while taking
+into account all its aspects and assingning 
+corresponding proportionalities*/
 void budget_scale(int *int_creation, string * string_creation, int *budget, string type)
 {
 	int multiply;
@@ -61,7 +64,8 @@ void budget_scale(int *int_creation, string * string_creation, int *budget, stri
 	{
 		*int_creation= sti(*string_creation);
 		//cout<<*int_creation<<endl;
-
+		
+		//prompts the user of exceeding the budget 
 		if((*budget-multiply*int_creation[0]) < 0)
 		{
 			cout<<"Exceeds budget"<<endl;
