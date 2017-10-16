@@ -1,0 +1,108 @@
+Shipping Company creation:
+please enter company name: ----Limited budget----
+
+Your budget is: 50
+You pay initialy for the creation of the storage capacity.
+Then adding to the capacity afterwards is ''free''.
+buildings cost: 1
+office cost: 5
+warehouse cost 5
+ships cost: 1
+carrier cost: 4
+escort ship cost: 2
+----Initial max storage capacity----
+Enter building capacity: Current budget is: 49
+Enter office capacity: Current budget is: 44
+Enter warehouse capacity: Current budget is: 39
+Enter general ship capacity: Enter a number 0 or greater
+Re enter number: Enter a number 0 or greater
+Re enter number: Current budget is: 37
+Enter carrier capacity: Current budget is: 37
+Enter escort ship capacity: Enter a number 0 or greater
+Re enter number: Enter a number 0 or greater
+Re enter number: Current budget is: 33
+----Company created----
+
+Enter: 'list_commands' to see command options
+Enter command: Enter ship name: Enter crew capacity: Enter soldier capacity: Enter a number 0 or greater
+Re enter number: Enter the number of equiptment of peace: Enter a number 0 or greater
+Re enter number: Ship ID is: 0
+
+Enter: 'list_commands' to see command options
+Enter command: Enter ship name: Enter crew capacity: Enter soldier capacity: Enter a number 0 or greater
+Re enter number: Enter the number of equiptment of peace: Ship ID is: 1
+
+Enter: 'list_commands' to see command options
+Enter command: Ship ID is: 0
+Shape name is: hms1
+Ship crew capacity is: 4
+Ship maintance cost is: 107
+Ship soldier capacity is: 4
+Ship number of equiptment of peace is: 3
+
+Ship ID is: 1
+Shape name is: hms2
+Ship crew capacity is: 6
+Ship maintance cost is: 75
+Ship soldier capacity is: 1
+Ship number of equiptment of peace is: 0
+
+
+Enter: 'list_commands' to see command options
+Enter command: Enter id of escort ship you wish to delete: escort of id 0has been removed
+
+Enter: 'list_commands' to see command options
+Enter command: Ship ID is: 1
+Shape name is: hms2
+Ship crew capacity is: 6
+Ship maintance cost is: 75
+Ship soldier capacity is: 1
+Ship number of equiptment of peace is: 0
+
+
+Enter: 'list_commands' to see command options
+Enter command: building storage capacity is:1
+Currently 0 stored
+
+office storage capacity is:1
+Currently 0 stored
+
+warehouse storage capacity is:1
+Currently 0 stored
+
+ship storage capacity is:2
+Currently 0 stored
+
+carrier storage capacity is:0
+Currently 0 stored
+
+escort ship storage capacity is:2
+Currently 1 stored
+
+
+Enter: 'list_commands' to see command options
+Enter command: Escort ships have been removed from the budget
+Current budget is: 37
+Enter new escort ship storage size: 
+Enter: 'list_commands' to see command options
+Enter command: building storage capacity is:1
+Currently 0 stored
+
+office storage capacity is:1
+Currently 0 stored
+
+warehouse storage capacity is:1
+Currently 0 stored
+
+ship storage capacity is:2
+Currently 0 stored
+
+carrier storage capacity is:0
+Currently 0 stored
+
+escort ship storage capacity is:1
+Currently 1 stored
+
+
+Enter: 'list_commands' to see command options
+Enter command: ----Program ended----

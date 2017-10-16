@@ -157,7 +157,7 @@ int main()
 		}
 		else if(command == "add_escort")
 		{
-			if(eco.get_no_escort()<eco.get_max_no_carrier())
+			if(eco.get_no_escort()<eco.get_max_no_escort())
 			{
 				eco.add_escort(escort_creation());
 				cout<<"Ship ID is: "<<escort_storage_pointer[eco.get_no_escort()-1].get_ship_id()<<endl;

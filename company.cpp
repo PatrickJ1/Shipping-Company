@@ -323,7 +323,7 @@ escort* company::renevate_escort_storage_capability(int new_max_number_of_escort
 		if(current_escort<=max_number_of_escorts)
 		{
 			escort* temp_pointer;
-			temp_pointer = new escort[max_number_of_escorts];
+			temp_pointer = new escort[new_max_number_of_escorts];
 
 			for (int i = 0; i < current_escort; i++)
 			{
@@ -333,7 +333,7 @@ escort* company::renevate_escort_storage_capability(int new_max_number_of_escort
 			delete[] escort_store_pointer;
 
 			escort_store_pointer = temp_pointer;
-			max_number_of_carriers = max_number_of_escorts;
+			max_number_of_escorts = new_max_number_of_escorts;
 
 			return escort_store_pointer;
 		}
@@ -736,6 +736,8 @@ company::~company()
 	delete[] building_store_pointer;
 	delete[] office_store_pointer;
 	delete[] warehouse_store_pointer;
+
+	cout<<"----Program ended----"<<endl;
 
 	/*ship_store_pointer= NULL;
 	carrier_store_pointer= NULL;

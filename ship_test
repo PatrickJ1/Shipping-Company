@@ -1,0 +1,7 @@
+g++ ship.cpp building.cpp carrier.cpp escort.cpp warehouse.cpp office.cpp company.cpp functions.cpp while_main.cpp -o com
+echo test 1
+./com < ship_input_test-01.txt | diff - ship_output_test-01.txt
+echo test 2
+./com < ship_input_test-02.txt | diff - ship_output_test-02.txt
+echo test 3
+./com < ship_input_test-03.txt | diff - ship_output_test-03.txt

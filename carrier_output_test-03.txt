@@ -1,0 +1,104 @@
+Shipping Company creation:
+please enter company name: ----Limited budget----
+
+Your budget is: 50
+You pay initialy for the creation of the storage capacity.
+Then adding to the capacity afterwards is ''free''.
+buildings cost: 1
+office cost: 5
+warehouse cost 5
+ships cost: 1
+carrier cost: 4
+escort ship cost: 2
+----Initial max storage capacity----
+Enter building capacity: Current budget is: 50
+Enter office capacity: Current budget is: 50
+Enter warehouse capacity: Current budget is: 50
+Enter general ship capacity: Current budget is: 50
+Enter carrier capacity: Exceeds budget
+Current budget is: 50
+Re enter number: Current budget is: 42
+Enter escort ship capacity: Current budget is: 42
+----Company created----
+
+Enter: 'list_commands' to see command options
+Enter command: Error
+Input does not match any known commands
+
+Enter: 'list_commands' to see command options
+Enter command: Error
+Input does not match any known commands
+
+Enter: 'list_commands' to see command options
+Enter command: Enter ship name: Enter crew capacity: Enter a number 0 or greater
+Re enter number: Enter storage capacity: Enter a number 0 or greater
+Re enter number: Ship ID is: 0
+
+Enter: 'list_commands' to see command options
+Enter command: Enter ship name: Enter crew capacity: Enter storage capacity: Ship ID is: 1
+
+Enter: 'list_commands' to see command options
+Enter command: Enter id of ship you wish to print: Ship ID is: 1
+Shape name is: hms2
+Ship crew capacity is: 6
+Ship maintance cost is: 60
+Ship storage capacity is: 0
+
+Enter: 'list_commands' to see command options
+Enter command: Enter id of carrier you wish to delete: carrier of id 1has been removed
+
+Enter: 'list_commands' to see command options
+Enter command: Ship ID is: 0
+Shape name is: hms1
+Ship crew capacity is: 1
+Ship maintance cost is: 20
+Ship storage capacity is: 2
+
+Enter: 'list_commands' to see command options
+Enter command: building storage capacity is:0
+Currently 0 stored
+
+office storage capacity is:0
+Currently 0 stored
+
+warehouse storage capacity is:0
+Currently 0 stored
+
+ship storage capacity is:0
+Currently 0 stored
+
+carrier storage capacity is:2
+Currently 1 stored
+
+escort ship storage capacity is:0
+Currently 0 stored
+
+
+Enter: 'list_commands' to see command options
+Enter command: Carriers have been removed from the budget
+Current budget is: 50
+Enter new carrier storage size: Enter a number 0 or greater
+Re enter number: Enter a number 0 or greater
+Re enter number: 
+Enter: 'list_commands' to see command options
+Enter command: building storage capacity is:0
+Currently 0 stored
+
+office storage capacity is:0
+Currently 0 stored
+
+warehouse storage capacity is:0
+Currently 0 stored
+
+ship storage capacity is:0
+Currently 0 stored
+
+carrier storage capacity is:4
+Currently 1 stored
+
+escort ship storage capacity is:0
+Currently 0 stored
+
+
+Enter: 'list_commands' to see command options
+Enter command: ----Program ended----

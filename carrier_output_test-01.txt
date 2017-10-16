@@ -1,0 +1,54 @@
+Shipping Company creation:
+please enter company name: ----Limited budget----
+
+Your budget is: 50
+You pay initialy for the creation of the storage capacity.
+Then adding to the capacity afterwards is ''free''.
+buildings cost: 1
+office cost: 5
+warehouse cost 5
+ships cost: 1
+carrier cost: 4
+escort ship cost: 2
+----Initial max storage capacity----
+Enter building capacity: Current budget is: 50
+Enter office capacity: Current budget is: 50
+Enter warehouse capacity: Current budget is: 50
+Enter general ship capacity: Current budget is: 50
+Enter carrier capacity: Current budget is: 46
+Enter escort ship capacity: Current budget is: 46
+----Company created----
+
+Enter: 'list_commands' to see command options
+Enter command: Enter ship name: Enter crew capacity: Enter storage capacity: Ship ID is: 0
+
+Enter: 'list_commands' to see command options
+Enter command: Ship ID is: 0
+Shape name is: hms_test
+Ship crew capacity is: 4
+Ship maintance cost is: 50
+Ship storage capacity is: 2
+
+Enter: 'list_commands' to see command options
+Enter command: Enter id of ship you wish to modify: Ship type is: carrier
+Old name is: hms_test
+Enter new ship name: 
+Enter: 'list_commands' to see command options
+Enter command: Enter id of ship you wish to modify: Ship type is: carrier
+Old crew capacity is: 4
+Enter new crew capacity: 
+Enter: 'list_commands' to see command options
+Enter command: Enter id of carrier you wish to modify: Old storage capacity is: 2
+Enter new storage capacity: 
+Enter: 'list_commands' to see command options
+Enter command: Enter id of ship you wish to print: Ship ID is: 0
+Shape name is: hms_test_2
+Ship crew capacity is: 5
+Ship maintance cost is: 100
+Ship storage capacity is: 10
+
+Enter: 'list_commands' to see command options
+Enter command: storage full
+
+Enter: 'list_commands' to see command options
+Enter command: ----Program ended----

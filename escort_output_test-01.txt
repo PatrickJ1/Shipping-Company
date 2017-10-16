@@ -1,0 +1,66 @@
+Shipping Company creation:
+please enter company name: ----Limited budget----
+
+Your budget is: 50
+You pay initialy for the creation of the storage capacity.
+Then adding to the capacity afterwards is ''free''.
+buildings cost: 1
+office cost: 5
+warehouse cost 5
+ships cost: 1
+carrier cost: 4
+escort ship cost: 2
+----Initial max storage capacity----
+Enter building capacity: Current budget is: 50
+Enter office capacity: Current budget is: 50
+Enter warehouse capacity: Current budget is: 50
+Enter general ship capacity: Current budget is: 50
+Enter carrier capacity: Current budget is: 50
+Enter escort ship capacity: Current budget is: 48
+----Company created----
+
+Enter: 'list_commands' to see command options
+Enter command: Enter ship name: Enter crew capacity: Enter soldier capacity: Enter a number 0 or greater
+Re enter number: Enter the number of equiptment of peace: Enter a number 0 or greater
+Re enter number: Ship ID is: 0
+
+Enter: 'list_commands' to see command options
+Enter command: Ship ID is: 0
+Shape name is: hms_test
+Ship crew capacity is: 4
+Ship maintance cost is: 60
+Ship soldier capacity is: 1
+Ship number of equiptment of peace is: 2
+
+
+Enter: 'list_commands' to see command options
+Enter command: Enter id of ship you wish to modify: Ship type is: escort ship
+Old name is: hms_test
+Enter new ship name: 
+Enter: 'list_commands' to see command options
+Enter command: Enter id of ship you wish to modify: No match of id
+
+Enter: 'list_commands' to see command options
+Enter command: Enter id of escort ship you wish to modify: Enter a number 0 or greater
+Re enter number: Enter a number 0 or greater
+Re enter number: No match of id
+
+Enter: 'list_commands' to see command options
+Enter command: Enter id of escort ship you wish to modify: Enter a number 0 or greater
+Re enter number: Enter a number 0 or greater
+Re enter number: No match of id
+
+Enter: 'list_commands' to see command options
+Enter command: Enter id of ship you wish to print: Ship ID is: 0
+Shape name is: hms_test_2
+Ship crew capacity is: 4
+Ship maintance cost is: 60
+Ship soldier capacity is: 1
+Ship number of equiptment of peace is: 2
+
+
+Enter: 'list_commands' to see command options
+Enter command: storage full
+
+Enter: 'list_commands' to see command options
+Enter command: ----Program ended----
