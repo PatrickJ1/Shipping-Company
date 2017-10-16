@@ -4,11 +4,15 @@
 #include <iostream>
 #include <string>
 
+//Office class takes in public functions and variables
+//from the building abstract class
 class office : public building
 {
+	//specific variables for the office class
 	int no_of_office_spaces;
 	int no_of_meeting_rooms;
 public:
+	//initialising functions
 	office();
 	office(int inital_no_of_office_spaces, 
 		   int inital_no_of_meeting_rooms, 
