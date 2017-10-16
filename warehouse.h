@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 
+//objects inherits from building class
 class warehouse : public building 
 {
 	int no_ship_repair_stations;
