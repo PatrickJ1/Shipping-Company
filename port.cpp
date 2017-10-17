@@ -4,6 +4,8 @@
 using namespace std;
 int port::currentID = 0;
 
+/*default constructor, takes in functions and variables from
+the building abstract class */
 port::port()
 {
 	portID = currentID;
