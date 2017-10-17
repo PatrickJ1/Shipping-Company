@@ -284,6 +284,8 @@ void warehouse_print(warehouse *house)
 
 /*walks user through ship creation process.
 the same is carried out specifically for carrier and escort */
+
+//walks user through building object creation process
 ship ship_creation()
 {
 	cout<<"ship creation: "<<endl;
