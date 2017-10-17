@@ -10,6 +10,8 @@ class warehouse : public building
 	int no_ship_repair_stations;
 	int no_truck_loading_bay;
 	int no_ports;
+
+//initializing functions
 public:
 	warehouse();
 	warehouse(std::string inital_building_material, 
