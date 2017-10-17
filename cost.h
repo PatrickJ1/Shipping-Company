@@ -1,3 +1,5 @@
+/*abstract class used to find
+an objects maintance cost*/
 #ifndef COST_H
 #define COST_H
 
