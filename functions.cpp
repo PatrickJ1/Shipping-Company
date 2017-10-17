@@ -281,6 +281,8 @@ void warehouse_print(warehouse *house)
 	cout<<"Number of ports are: "<<house-> get_no_ports()<<endl;
 }
 
+/*walks user through ship creation process.
+the same is carried out specifically for carrier and escort */
 ship ship_creation()
 {
 	cout<<"ship creation: "<<endl;
@@ -346,6 +348,7 @@ escort escort_creation()
 	return new_escort; 
 }
 
+/*prints all the data for a specific ship object */
 void ship_print(ship* boat)
 {
 	cout<<"Ship ID is: "<<boat->get_ship_id()<<endl;
@@ -365,6 +368,7 @@ void escort_print(escort* boat)
 	cout<<"Ship number of equiptment of peace is: "<<boat->get_peace_equiptment_amount()<<endl;
 }
 
+//if there's a false id match, prints message
 bool id_print(bool *id_match)
 {
 	if(*id_match == false)
