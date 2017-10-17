@@ -2,12 +2,14 @@
 #define ESCORT_H
 #include "ship.h"
 
+//inherits from the ship class
 class escort : public ship
 {
 private:
 	int number_of_soldiers;
 	int equiptment_of_peace;
 
+//initializing functions
 public:
 	escort();
 	escort(int initial_crew_capacity, std::string inital_ship_name, 
