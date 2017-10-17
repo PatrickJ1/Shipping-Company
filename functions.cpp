@@ -41,32 +41,29 @@ a multiplier accordingly keeps user in while loop until input is within budget*/
 void budget_scale(int *int_creation, string * string_creation, int *budget, string type)
 {
 	int multiply;
-
+	//Selects multiplier
 	if((type == "building") || (type == "ship"))
 		{
 			multiply = 1;
-			//cout<<multiply<<endl;
 		}
 		else if((type == "office") || (type == "warehouse"))
 		{
 			multiply = 5;
-			//cout<<multiply<<endl;
 		}
 		else if(type == "escort")
 		{
 			multiply = 2;
-			//cout<<multiply<<endl;
 		}
 		else if(type == "carrier")
 		{
 			multiply = 4;
-			//cout<<multiply<<endl;
 		}
-
+	
+	/* this do loop sees if the input is withing budget. if it isn't prompts user to
+	re enter number*/
 	do
 	{
-		*int_creation= sti(*string_creation);
-		//cout<<*int_creation<<endl;
+		*int_creation= sti(*string_creation); // gets int from string input
 		
 		//prompts the user of exceeding the budget 
 		if((*budget-multiply*int_creation[0]) < 0)
@@ -75,12 +72,10 @@ void budget_scale(int *int_creation, string * string_creation, int *budget, stri
 			cout<<"Current budget is: "<<*budget<<endl;
 			cout<<"Re enter number: ";
 		}
-		//cout<<multipy<<endl;
-		//cout<<*budget - multiply*int_creation[0]<<endl;
-		//cout<<50 -55<<endl;
 	}while((budget[0]-multiply*int_creation[0]) < 0);
 }
 
+//function to find current budget
 void print_budget(int* budget)
 {
 	cout<<"Current budget is: "<<*budget<<endl;	
@@ -165,8 +160,8 @@ company company_creation()
 
 	return eco;
 }
-/*walks user through building creation process.
-the same is carried out specifically for warehouses and offices */
+
+//walks user through building object creation process
 building building_creation()
 {
 	cout<<"Building creation:"<<endl;
@@ -188,6 +183,7 @@ building building_creation()
 	return house;
 }
 
+//walks user through office object creation process
 office office_creation()
 {
 	cout<<"Building creation:"<<endl;
@@ -221,6 +217,7 @@ office office_creation()
 	return pro_house;
 }
 
+//walks user through warehouse object creation process
 warehouse warehouse_creation()
 {
 	cout<<"Building creation:"<<endl;
@@ -258,8 +255,7 @@ warehouse warehouse_creation()
 	return maintance;
 }
 
-/* prints any individual object's data points for each of the
-general building object and each of its types*/
+//print out specific building object infromation
 void building_print(building *house)
 {
 	cout<<"Building ID is: "<<house->get_ID()<<endl;
@@ -270,6 +266,7 @@ void building_print(building *house)
 	cout<<"Building maintance cost is: "<<house->get_maintance_cost()<<endl;	
 }
 
+//This function is used after building_print to print out specific office information
 void office_print(office *house)
 {
 	cout<<"Number of office spaces are: "<<house->get_no_of_office_spaces()<<endl;
@@ -277,6 +274,7 @@ void office_print(office *house)
 	
 }
 
+//This function is used after building_print to print out the specific warehouse information
 void warehouse_print(warehouse *house)
 {
 	cout<<"Number of ship repair stations are: "<<house->get_no_ship_repair_stations()<<endl;
