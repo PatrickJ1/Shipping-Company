@@ -119,7 +119,7 @@ int main()
 		{
 			program_run = false;
 		}
-		else if(command == "list_commands")
+		else if(command == "list_commands") //prints all the possible commands
 		{
 			cout<<"----command list----"<<endl;
 			cout<<"add_ship"<<endl;
@@ -173,7 +173,7 @@ int main()
 		}
 		else if(command == "add_ship")
 		{
-			//don't let them create if can't hold
+			//Prevents ship creation if max number has been exceeded
 			if(eco.get_no_ships()<eco.get_max_no_ships())
 			{
 				eco.add_ship(ship_creation());
@@ -210,6 +210,8 @@ int main()
 				cout<<"storage full"<<endl;
 			}
 		}
+		/* allows the storage of all of the ship objects to be changed
+		while account for this in the budget*/
 		else if(command == "resize_ship_storage")
 		{
 			budget = budget + eco.get_max_no_ships();
@@ -244,8 +246,9 @@ int main()
 			//data_input = sti(s_data_input);
 			escort_storage_pointer =  eco.renevate_escort_storage_capability(data_input);
 			budget = budget - 2*eco.get_max_no_escort();
-
-		}
+		
+		/* initializes process of removing a ship object*/
+		} 
 		else if(command == "remove_ship")
 		{
 			//change_function_check = eco.get_no_ships();
@@ -278,6 +281,7 @@ int main()
 			id = sti(s_id);
 
 			escort_storage_pointer = eco.remove_escort(id);
+		/* prints all the ships of any type for the user*/
 		}
 		else if(command == "print_all_ship_type")
 		{
@@ -387,6 +391,8 @@ int main()
 
 			id_match = id_print(&id_match);
 		}
+		
+		/* Initializes process to create a ship */
 		else if(command == "change_ship_name")
 		{
 			cout<<"Enter id of ship you wish to modify: ";
@@ -479,6 +485,8 @@ int main()
 
 			id_match = id_print(&id_match);
 		}
+		
+		
 		else if(command == "change_carrier_storage")
 		{
 			cout<<"Enter id of carrier you wish to modify: ";
