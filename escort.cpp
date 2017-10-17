@@ -5,7 +5,7 @@
 using namespace std;
 
 /*default constructor, takes in functions and variables from
-the escort abstract class */
+the ship abstract class */
 escort::escort() : ship()
 {
 	number_of_soldiers = 0;
