@@ -266,7 +266,7 @@ void building_print(building *house)
 	cout<<"Building maintance cost is: "<<house->get_maintance_cost()<<endl;	
 }
 
-//This function is used after building_print to print out specific office information
+//This function is used after building_print to print out extra office specific information
 void office_print(office *house)
 {
 	cout<<"Number of office spaces are: "<<house->get_no_of_office_spaces()<<endl;
@@ -274,7 +274,7 @@ void office_print(office *house)
 	
 }
 
-//This function is used after building_print to print out the specific warehouse information
+//This function is used after building_print to print out extra warehouse specifc information
 void warehouse_print(warehouse *house)
 {
 	cout<<"Number of ship repair stations are: "<<house->get_no_ship_repair_stations()<<endl;
@@ -282,10 +282,7 @@ void warehouse_print(warehouse *house)
 	cout<<"Number of ports are: "<<house-> get_no_ports()<<endl;
 }
 
-/*walks user through ship creation process.
-the same is carried out specifically for carrier and escort */
-
-//walks user through building object creation process
+//walks user through ship object creation process
 ship ship_creation()
 {
 	cout<<"ship creation: "<<endl;
@@ -304,6 +301,7 @@ ship ship_creation()
 	return new_ship;
 }
 
+//walks user through carrier object creation process
 carrier carrier_creation()
 {
 	string ship_name;
@@ -326,6 +324,7 @@ carrier carrier_creation()
 	return new_carrier;
 }
 
+//walks user through escort ship object creation process
 escort escort_creation()
 {
 	string ship_name;
@@ -360,11 +359,13 @@ void ship_print(ship* boat)
 	cout<<"Ship maintance cost is: "<<boat->get_maintance_cost()<<endl;
 }
 
+//This function is used after ship_print to print out extra carrier specific information
 void carrier_print(carrier* boat)
 {
 	cout<<"Ship storage capacity is: "<<boat->get_storage_capacity();
 }
 
+//This function is used after ship_print to print out extra escort specific information
 void escort_print(escort* boat)
 {
 	cout<<"Ship soldier capacity is: "<<boat->get_soldiers_amount()<<endl;
