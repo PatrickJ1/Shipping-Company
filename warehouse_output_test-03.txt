@@ -1,0 +1,114 @@
+Shipping Company creation:
+please enter company name: ----Limited budget----
+
+Your budget is: 50
+You pay initialy for the creation of the storage capacity.
+Then adding to the capacity afterwards is ''free''.
+buildings cost: 1
+office cost: 5
+warehouse cost 5
+ships cost: 1
+carrier cost: 4
+escort ship cost: 2
+----Initial max storage capacity----
+Enter building capacity: Current budget is: 50
+Enter office capacity: Current budget is: 50
+Enter warehouse capacity: Exceeds budget
+Current budget is: 50
+Re enter number: Current budget is: 40
+Enter general ship capacity: Current budget is: 40
+Enter carrier capacity: Current budget is: 40
+Enter escort ship capacity: Current budget is: 40
+----Company created----
+
+Enter: 'list_commands' to see command options
+Enter command: Error
+Input does not match any known commands
+
+Enter: 'list_commands' to see command options
+Enter command: Building creation:
+Enter number of ports: Enter number of truck loading bays: Enter number of ship repair stations: Enter building material: Enter building worker capacity: Enter a number 0 or greater
+Re enter number: Enter building location: Building ID is: 0
+
+Enter: 'list_commands' to see command options
+Enter command: Building creation:
+Enter number of ports: Enter a number 0 or greater
+Re enter number: Enter number of truck loading bays: Enter a number 0 or greater
+Re enter number: Enter number of ship repair stations: Enter a number 0 or greater
+Re enter number: Enter building material: Enter building worker capacity: Enter building location: Building ID is: 1
+
+Enter: 'list_commands' to see command options
+Enter command: Enter id of building you wish to print: Building ID is: 1
+Building type is: building
+Building location is: hill
+Building material is: rock
+Building worker capacity is: 6
+Building maintance cost is: 61
+Number of ship repair stations are: 5
+Number of truck loading bays are: 4
+Number of ports are: 1
+
+
+Enter: 'list_commands' to see command options
+Enter command: Enter id of warehouse you wish to delete: warehouse of id 1has been removed
+
+Enter: 'list_commands' to see command options
+Enter command: Building ID is: 0
+Building type is: building
+Building location is: sand
+Building material is: paper
+Building worker capacity is: 1
+Building maintance cost is: 24
+Number of ship repair stations are: 3
+Number of truck loading bays are: 2
+Number of ports are: 1
+
+
+Enter: 'list_commands' to see command options
+Enter command: building storage capacity is:0
+Currently 0 stored
+
+office storage capacity is:0
+Currently 0 stored
+
+warehouse storage capacity is:2
+Currently 1 stored
+
+ship storage capacity is:0
+Currently 0 stored
+
+carrier storage capacity is:0
+Currently 0 stored
+
+escort ship storage capacity is:0
+Currently 0 stored
+
+
+Enter: 'list_commands' to see command options
+Enter command: Warehouses have been removed from the budget
+Current budget is: 50
+Enter new warehouse storage size: Enter a number 0 or greater
+Re enter number: Enter a number 0 or greater
+Re enter number: 
+Enter: 'list_commands' to see command options
+Enter command: building storage capacity is:0
+Currently 0 stored
+
+office storage capacity is:0
+Currently 0 stored
+
+warehouse storage capacity is:4
+Currently 1 stored
+
+ship storage capacity is:0
+Currently 0 stored
+
+carrier storage capacity is:0
+Currently 0 stored
+
+escort ship storage capacity is:0
+Currently 0 stored
+
+
+Enter: 'list_commands' to see command options
+Enter command: ----Program ended----

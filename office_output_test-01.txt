@@ -1,0 +1,67 @@
+Shipping Company creation:
+please enter company name: ----Limited budget----
+
+Your budget is: 50
+You pay initialy for the creation of the storage capacity.
+Then adding to the capacity afterwards is ''free''.
+buildings cost: 1
+office cost: 5
+warehouse cost 5
+ships cost: 1
+carrier cost: 4
+escort ship cost: 2
+----Initial max storage capacity----
+Enter building capacity: Current budget is: 50
+Enter office capacity: Current budget is: 45
+Enter warehouse capacity: Current budget is: 45
+Enter general ship capacity: Current budget is: 45
+Enter carrier capacity: Current budget is: 45
+Enter escort ship capacity: Current budget is: 45
+----Company created----
+
+Enter: 'list_commands' to see command options
+Enter command: Building creation:
+Enter number of office spaces: Enter a number 0 or greater
+Re enter number: Enter a number 0 or greater
+Re enter number: Enter number of meeting rooms: Enter a number 0 or greater
+Re enter number: Enter a number 0 or greater
+Re enter number: Enter a number 0 or greater
+Re enter number: Enter a number 0 or greater
+Re enter number: Enter a number 0 or greater
+Re enter number: Enter building material: Enter building worker capacity: Enter a number 0 or greater
+Re enter number: Enter a number 0 or greater
+Re enter number: Enter a number 0 or greater
+Re enter number: Enter building location: Building ID is: 0
+
+Enter: 'list_commands' to see command options
+Enter command: Enter id of building you wish to modify: Building type is: office
+old worker capacity is: 0
+Enter new worker capacity: Enter a number 0 or greater
+Re enter number: Enter a number 0 or greater
+Re enter number: 
+Enter: 'list_commands' to see command options
+Enter command: Enter id of office you wish to modify: old number of office spaces are: 3
+Enter new number of office spaces: Enter a number 0 or greater
+Re enter number: Enter a number 0 or greater
+Re enter number: 
+Enter: 'list_commands' to see command options
+Enter command: Enter id of office you wish to modify: old number of meeting rooms are: 1
+Enter new number of meeting rooms: Enter a number 0 or greater
+Re enter number: Enter a number 0 or greater
+Re enter number: 
+Enter: 'list_commands' to see command options
+Enter command: Enter id of building you wish to print: Building ID is: 0
+Building type is: office
+Building location is: Londen
+Building material is: 5
+Building worker capacity is: 4
+Building maintance cost is: 114
+Number of office spaces are: 10
+Number of meeting rooms are: 11
+
+
+Enter: 'list_commands' to see command options
+Enter command: storage full
+
+Enter: 'list_commands' to see command options
+Enter command: ----Program ended----
