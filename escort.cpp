@@ -4,12 +4,16 @@
 #include <string>
 using namespace std;
 
+/*default constructor, takes in functions and variables from
+the escort abstract class */
 escort::escort() : ship()
 {
 	number_of_soldiers = 0;
 	equiptment_of_peace = 0;
 }
 
+/* Takes in crew capacity, ship name, #of soldier and #of weapons
+from main function and implements into functions*/
 escort::escort(int initial_crew_capacity, string inital_ship_name, 
 			   int initial_number_of_soldiers, int initial_eqiptment_of_peace)
 			   : ship(initial_crew_capacity, inital_ship_name)
@@ -18,26 +22,31 @@ escort::escort(int initial_crew_capacity, string inital_ship_name,
 	equiptment_of_peace = initial_eqiptment_of_peace;
 }	
 
+//returns #of soldiers
 int escort::get_soldiers_amount()
 {
 	return number_of_soldiers;
 }
 
+//returns #of weapons
 int escort::get_peace_equiptment_amount()
 {
 	return equiptment_of_peace;
 }
 
+//allows #of weapons to change retroactively
 void escort::change_peace_equiptment_amount(int new_equiptment_of_peace)
 {
 	equiptment_of_peace = new_equiptment_of_peace;
 }
 
+//allows #of soldiers to change retroactively
 void escort::defence_center_renevation(int new_numbers_of_soldiers)
 {
 	number_of_soldiers = new_numbers_of_soldiers;
 }
 
+//calculates maintenance
 int escort::get_maintance_cost()
 {
 	int cost = crew_capacity*10 + number_of_soldiers*15 
