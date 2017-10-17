@@ -12,7 +12,7 @@
 using namespace std;
 
 /*this function takes in a string and converts to an integer.
-if stinrg is not an int, the int is set to -1. which promts user
+if string is not an int, the int is set to -1. which promts user
 to re enter sting. prompt is same with negative numbers*/
 int sti(string general_string)
 {
