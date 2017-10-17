@@ -34,6 +34,7 @@ void office::renevate_office_spaces(int new_no_of_office_spaces)
 	no_of_office_spaces = new_no_of_office_spaces;
 }
 
+//returns #of office spaces
 int office::get_no_of_office_spaces()
 {
 	return no_of_office_spaces;
@@ -45,11 +46,13 @@ void office::renevate_meeting_rooms(int new_no_of_meeting_rooms)
 	no_of_meeting_rooms = new_no_of_meeting_rooms;
 }
 
+//returns #of meeting rooms
 int office::get_no_of_meeting_rooms()
 {
 	return no_of_meeting_rooms;
 }
 
+//returns office name
 string office::get_building_type()
 {
 	return "office";
