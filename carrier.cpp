@@ -5,7 +5,7 @@
 using namespace std;
 
 /*default constructor, takes in functions and variables from
-the carrier abstract class */
+the ship abstract class */
 carrier::carrier() : ship()
 {
 	storage_capacity =0;
