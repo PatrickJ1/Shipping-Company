@@ -4,6 +4,7 @@
 #include <iostream>
 #include "cost.h"
 
+//abstract class for the different types of ship; carrier & escort
 class ship : public cost
 {
 private:
@@ -14,6 +15,7 @@ private:
 protected:
 	int crew_capacity;
 
+//initializing funcitons
 public:
 	ship();
 	ship(int initial_crew_capacity, std::string inital_ship_name);
