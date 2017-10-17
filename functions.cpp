@@ -36,9 +36,8 @@ int sti(string general_string)
 
 }
 
-/* creates a budget for the company while taking
-into account all its aspects and assingning 
-corresponding proportionalities*/
+/*this function is for the decleration of int inputs in a company. Depending on the object it sets
+a multiplier accordingly keeps user in while loop until input is within budget*/
 void budget_scale(int *int_creation, string * string_creation, int *budget, string type)
 {
 	int multiply;
