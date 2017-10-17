@@ -1,3 +1,5 @@
+//ideas for project, e.g budget
+
 have a budget to purchase outrigth (ignores maintance cost)
 eg 50 budget (probs in millions)
 
