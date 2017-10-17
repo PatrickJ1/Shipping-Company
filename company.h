@@ -9,6 +9,7 @@
 #include "office.h"
 #include "warehouse.h"
 
+
 class company
 {
 private:
@@ -39,6 +40,8 @@ private:
 	building *building_store_pointer;
 	office *office_store_pointer;
 	warehouse *warehouse_store_pointer;
+																				
+//initialise functions	
 public:
 	company();
 	company(std::string inital_company_name,
