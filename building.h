@@ -4,8 +4,7 @@
 #include <string>
 #include "cost.h"
 
-//abstract class for the different types of buildings; office & warehouse
-class building : public cost
+class building : public cost //implemtation of abstract class cost
 {
 	//initializing variables 
 	std::string building_material;
