@@ -10,16 +10,20 @@
 #include <sstream>
 #include <cstddef>
 using namespace std;
+
+/*this function takes in a string and converts to an integer.
+if stinrg is not an int, the int is set to -1. which promts user
+to re enter sting. prompt is same with negative numbers*/
 int sti(string general_string)
 {
 	int general_int;
 	do
 	{
 		cin >> general_string;
-		stringstream convert(general_string);
-		convert >> general_int;
-		size_t found = general_string.find_first_not_of("0123456789 ");
-		if(found != string::npos)
+		stringstream convert(general_string); // converts to a stringstream object
+		convert >> general_int; // stringstream object becomes an int
+		size_t found = general_string.find_first_not_of("0123456789 "); //sees if string has any non number input
+		if(found != string::npos) // if string is not just numbers int = -1
 		{
 			general_int = -1;
 		}
@@ -28,7 +32,7 @@ int sti(string general_string)
 			cout<<"Enter a number 0 or greater"<<endl;
 			cout<<"Re enter number: ";
 		}
-	}while(general_int<0);
+	}while(general_int<0); // keep in loop as long as input is not valid
 
 }
 
