@@ -9,7 +9,7 @@
 #include "office.h"
 #include "warehouse.h"
 
-
+//uses all the classes included above
 class company
 {
 private:
