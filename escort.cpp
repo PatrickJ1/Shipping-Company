@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-/*default constructor pushes extra intput into ship constructor which it inheritace from
+//default constructor pushes extra intput into ship constructor which it inheritace from
 escort::escort() : ship()
 {
 	number_of_soldiers = 0;
