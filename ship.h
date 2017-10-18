@@ -4,7 +4,7 @@
 #include <iostream>
 #include "cost.h"
 
-//abstract class for the different types of ship; carrier & escort
+//inheritace from abstract class cost
 class ship : public cost
 {
 private:
@@ -24,9 +24,6 @@ public:
 	std::string get_ship_name();
 	void change_ship_name(std::string new_name);
 	int get_ship_id();
-	//virtual int get_maintance_cost() =0;
 	int get_maintance_cost();
-	//~ship();
-	
 };
 #endif
