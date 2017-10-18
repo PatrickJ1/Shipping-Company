@@ -466,11 +466,11 @@ int main()
 
 			id_match = id_print(&id_match);
 		}
-		else if(command == "add_building")
+		else if(command == "add_building") // add a new building into building storage
 		{
-			if(eco.get_no_buildings()<eco.get_max_no_buildings())
+			if(eco.get_no_buildings()<eco.get_max_no_buildings()) // sees if storage is full
 			{
-				eco.add_building(building_creation());
+				eco.add_building(building_creation()); // adds a building object into the storage
 
 				cout<<"Building ID is: "<<building_storage_pointer[eco.get_no_buildings()-1].get_ID()<<endl;
 			}
@@ -479,7 +479,7 @@ int main()
 				cout<<"storage full"<<endl;
 			}
 		}
-		else if(command == "add_office")
+		else if(command == "add_office") // same as add_building but for office
 		{	
 			if(eco.get_no_office()<eco.get_max_no_office())
 			{
@@ -491,7 +491,7 @@ int main()
 				cout<<"storage full"<<endl;
 			}
 		}
-		else if(command == "add_warehouse")
+		else if(command == "add_warehouse") //same as add building but warehouse
 		{
 			if(eco.get_no_warehouse()<eco.get_max_no_warehouse())
 			{
@@ -503,7 +503,7 @@ int main()
 				cout<<"storage full"<<endl;
 			}
 		}
-		else if(command == "resize_building_storage")
+		else if(command == "resize_building_storage")// same as resize_ship_storage but building
 		{
 			budget = budget + eco.get_max_no_buildings();
 			cout<<"Buildings have been removed from the budget"<<endl;
@@ -515,7 +515,7 @@ int main()
 			budget = budget - eco.get_max_no_buildings();
 
 		}
-		else if(command == "resize_office_storage")
+		else if(command == "resize_office_storage") // same as resize_ship_storage but office
 		{
 			budget = budget + 5*eco.get_max_no_office();
 			cout<<"Offices have been removed from the budget"<<endl;
@@ -526,7 +526,7 @@ int main()
 			office_storage_pointer =  eco.rescale_office_budget(data_input);	
 			budget = budget - 5*eco.get_max_no_office();
 		}
-		else if(command == "resize_warehouse_storage")
+		else if(command == "resize_warehouse_storage") // same as resize_ship_storage but warehouse
 		{
 			budget = budget + 5*eco.get_max_no_warehouse();
 			cout<<"Warehouses have been removed from the budget"<<endl;
@@ -537,27 +537,28 @@ int main()
 			warehouse_storage_pointer =  eco.rescale_warehouse_budget(data_input);	
 			budget = budget - 5*eco.get_max_no_warehouse();
 		}
-		else if(command == "remove_building")
+		else if(command == "remove_building")// same as remove_ship but building
 		{
 			cout<<"Enter id of building you wish to delete: ";
 			id = sti(s_id);
 
 			building_storage_pointer = eco.remove_building(id);
 		}
-		else if(command == "remove_office")
+		else if(command == "remove_office") // same as remove_ship but office
 		{
 			cout<<"Enter id of office you wish to delete: ";
 			id = sti(s_id);
 
 			office_storage_pointer = eco.remove_office(id);
 		}
-		else if(command == "remove_warehouse")
+		else if(command == "remove_warehouse") // same as remove_ship but warehouse
 		{
 			cout<<"Enter id of warehouse you wish to delete: ";
 			id = sti(s_id);
 
 			warehouse_storage_pointer = eco.remove_warehouse(id);
 		}
+		// changes building location for building types if id match for partucular building
 		else if(command == "change_building_location")
 		{
 			cout<<"Enter id of building you wish to modify: ";
@@ -605,7 +606,8 @@ int main()
 			id_match = id_print(&id_match);
 
 		}
-		else if(command == "change_building_worker_capacity")
+		// changes worker capacity for all three building types if id matches for particular object
+		else if(command == "change_building_worker_capacity") 
 		{
 			cout<<"Enter id of building you wish to modify: ";
 			id = sti(s_id);
@@ -652,6 +654,7 @@ int main()
 
 			id_match = id_print(&id_match);
 		}
+		//prints info on all three types of buildings
 		else if(command == "print_all_type_buildings")
 		{
 			for(int i =0; i<eco.get_no_buildings(); i++)
@@ -681,6 +684,7 @@ int main()
 			}
 
 		}
+		//prints info on all general buildings
 		else if(command == "print_all_buildings")
 		{
 			for(int i =0; i<eco.get_no_buildings(); i++)
@@ -694,7 +698,7 @@ int main()
 				cout<<"You have no buildings"<<endl;
 			}
 		}
-		else if(command == "print_all_offices")
+		else if(command == "print_all_offices") // prints info for all offices
 		{
 			for(int i =0; i < eco.get_no_office(); i++)
 			{
@@ -709,7 +713,7 @@ int main()
 				cout<<"You have no offices"<<endl;
 			}
 		}
-		else if(command == "print_all_warehouses")
+		else if(command == "print_all_warehouses") // prints info for all warehouses
 		{
 			for(int i =0; i < eco.get_no_warehouse(); i++)
 			{
@@ -723,7 +727,7 @@ int main()
 				cout<<"You have no warehouses"<<endl;
 			}
 		}
-		else if(command == "print_id_building")
+		else if(command == "print_id_building") //for any building type. prints info of object if id matches
 		{
 			cout<<"Enter id of building you wish to print: ";
 			id = sti(s_id);
@@ -763,7 +767,7 @@ int main()
 
 			id_match = id_print(&id_match);
 		}
-		else if(command == "change_office_space")
+		else if(command == "change_office_space") // changes number of office spaces in particular office if id matches
 		{
 			cout<<"Enter id of office you wish to modify: ";
 			id = sti(s_id);
@@ -781,7 +785,7 @@ int main()
 
 			id_match = id_print(&id_match);
 		}
-		else if(command == "change_meeting_room_no")
+		else if(command == "change_meeting_room_no")//changes amount of meeting rooms in particular office if id matches
 		{
 			cout<<"Enter id of office you wish to modify: ";
 			id = sti(s_id);
@@ -800,7 +804,7 @@ int main()
 
 			id_match = id_print(&id_match);
 		}
-		else if(command == "change_number_of_ports")
+		else if(command == "change_number_of_ports") // changes amount of ports for particular warehouse if id matches
 		{
 			cout<<"Enter id of warehouse you wish to modify: ";
 			id = sti(s_id);
@@ -818,6 +822,7 @@ int main()
 
 			id_match = id_print(&id_match);
 		}
+		// changes number of ship repair stations in particular warehouse if id matches
 		else if(command == "change_number_of_repair_stations")
 		{
 			cout<<"Enter id of warehouse you wish to modify: ";
@@ -838,6 +843,7 @@ int main()
 
 			id_match = id_print(&id_match);
 		}
+		//changes amount of truck loading bays for particular warehouse if id matches
 		else if(command == "change_number_truck_bays")
 		{
 			cout<<"Enter id of warehouse you wish to modify: ";
@@ -856,7 +862,7 @@ int main()
 
 			id_match = id_print(&id_match);
 		}
-		else if(command == "total_maintance_cost")
+		else if(command == "total_maintance_cost") // gets total maintance cost from all objects added into storage
 		{
 			int cost =0;
 			for(int i = 0; i<eco.get_no_buildings(); i++)
@@ -891,7 +897,8 @@ int main()
 
 			cout<<"Current total maintance cost is: "<<cost<<endl;
 		}
-		else if(command == "storage_stats")
+		// diplays amount of storage capacity for each object type and how full storage arrays are
+		else if(command == "storage_stats") 
 		{
 			cout<<"building storage capacity is:"<<eco.get_max_no_buildings()<<endl;
 			cout<<"Currently "<<eco.get_no_buildings()<<" stored"<<endl<<endl;
@@ -911,24 +918,14 @@ int main()
 			cout<<"escort ship storage capacity is:"<<eco.get_max_no_escort()<<endl;
 			cout<<"Currently "<<eco.get_no_escort()<<" stored"<<endl<<endl;
 		}
-		else if(command == "get_current_budget")
+		else if(command == "get_current_budget") // get the current budget remaing for storage capacity
 		{
 			print_budget(&budget);
 		}
-		else
+		else // for no match of input command
 		{
 			cout<<"Error"<<endl<<
 			"Input does not match any known commands"<<endl;
 		}
 	}
-	
-	//eco.~company();
-	building_storage_pointer = NULL;
-	office_storage_pointer = NULL;
-	warehouse_storage_pointer = NULL ;
-	ship_storage_pointer = NULL;
-	carrier_storage_pointer = NULL;
-	escort_storage_pointer = NULL;
-
-	
 }
