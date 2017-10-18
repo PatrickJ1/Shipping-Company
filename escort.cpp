@@ -11,8 +11,7 @@ escort::escort() : ship()
 	equiptment_of_peace = 0;
 }
 
-/* Takes in crew capacity, ship name, #of soldier and #of weapons
-from main function and implements into functions*/
+// input constructor foe escort
 escort::escort(int initial_crew_capacity, string inital_ship_name, 
 			   int initial_number_of_soldiers, int initial_eqiptment_of_peace)
 			   : ship(initial_crew_capacity, inital_ship_name)
@@ -21,13 +20,13 @@ escort::escort(int initial_crew_capacity, string inital_ship_name,
 	equiptment_of_peace = initial_eqiptment_of_peace;
 }	
 
-//returns #of soldiers
+//returns #of soldiers in a escort ship
 int escort::get_soldiers_amount()
 {
 	return number_of_soldiers;
 }
 
-//returns #of weapons
+//returns #of weapons in a escort ship
 int escort::get_peace_equiptment_amount()
 {
 	return equiptment_of_peace;
