@@ -5,18 +5,18 @@
 #include "building.h"
 using namespace std;
 
-//default company initialiser 
+//default company constructor 
 company::company()
 {
 	company_name = "Vacant";
 
-	max_number_of_ships = 10;
+	max_number_of_ships = 10; 
 	max_number_of_carriers = 3;
 	max_number_of_escorts = 5;
 	ship_store_pointer = new ship[max_number_of_ships];
 	carrier_store_pointer = new carrier[max_number_of_carriers];
 	escort_store_pointer = new escort[max_number_of_escorts];
-	current_ship =0; 
+	current_ship =0; //represents having zero ships initially
 	current_carrier =0;
 	current_escort =0;
 
@@ -29,10 +29,9 @@ company::company()
 	current_building=0;
 	current_office = 0;
 	current_warehouse=0;
-	//number_number_of_ports = 0;
 }
 
-//takes in parameters from main function
+//company constructor with inputs
 company::company(string inital_company_name,
 				int inital_max_number_of_ships,
 				int inital_max_number_of_carriers,
@@ -79,7 +78,7 @@ std::string company::get_name()
 }
 
 //allows a ship to be added, provided it doesn't cause the fleet to exceed
-//the makimum number of ships
+//the maximum number of ships
 void company::add_ship(ship new_ship)
 {
 	if(current_ship < max_number_of_ships)
@@ -95,6 +94,8 @@ void company::add_ship(ship new_ship)
 	
 }
 
+//allows a carrier to be added, provided it doesn't exceed
+//the maximum number of carriers
 void company::add_carrier(carrier new_carrier)
 {
 	if(current_carrier < max_number_of_carriers)
@@ -108,6 +109,8 @@ void company::add_carrier(carrier new_carrier)
 	}
 }
 
+//allows a escort ship to be added, provided it doesn't exceed
+//the maximum number of escort ships
 void company::add_escort(escort new_escort)
 {
 	if(current_escort < max_number_of_escorts)
@@ -122,7 +125,7 @@ void company::add_escort(escort new_escort)
 }
 
 //allows a building to be added, provided it doesn't cause the 
-//buildings to exceed the maximum number 
+//buildings to exceed the maximum number of buildings 
 void company::add_building(building new_building)
 {
 	if(current_building < max_number_of_buildings)
@@ -136,6 +139,8 @@ void company::add_building(building new_building)
 	}
 }
 
+//allows a office to be added, provided it doesn't cause the 
+//buildings to exceed the maximum number of offices
 void company::add_office(office new_office)
 {
 	if(current_office < max_number_of_offices)
