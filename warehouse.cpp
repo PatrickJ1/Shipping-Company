@@ -5,8 +5,8 @@
 using namespace std;
 
 
-/*default constructor, takes in functions and variables from
-the building abstract class */
+/*default constructor for warehouse object which also
+uses defult constructor from building which in inherits from*/
 warehouse::warehouse() : building()
 {
 	no_ship_repair_stations = 0;
@@ -14,16 +14,14 @@ warehouse::warehouse() : building()
 	no_ports = 0;
 }
 
-/* Takes in building material, worker capacity, branch location, 
-#of shipRepair stations, #of truck loading bays and #of ports
-from main function and implements into functions*/
+/*constructor with inputs for warehouse object*/
 warehouse::warehouse(string inital_building_material, 
 		      		 int inital_worker_capacity, 
 		      		 string inital_branch_location, 
 		      		 int initail_no_ship_repair_stations,
-		             int inital_no_truck_loading_bay,
-		             int inital_no_ports) : building(
-		             inital_building_material, 
+		             	 int inital_no_truck_loading_bay,
+		             	 int inital_no_ports) : building(
+		             	 inital_building_material, 
 		      		 inital_worker_capacity, 
 		      		 inital_branch_location)
 					
@@ -33,7 +31,7 @@ warehouse::warehouse(string inital_building_material,
 	no_ports = inital_no_ports;
 }
 
-//returns #of ship repair stations
+//returns #of ship repair stations in a warehouse
 int warehouse::get_no_ship_repair_stations()
 {
 	return no_ship_repair_stations;
@@ -45,7 +43,7 @@ void warehouse::change_no_ship_repair_stations(int new_no_ship_repair_stations)
 	no_ship_repair_stations = new_no_ship_repair_stations;
 }
 
-//returns #of truck loading bays
+//returns #of truck loading bays in a warehouse
 int warehouse::get_no_truck_loading_bay()
 {
 	return no_truck_loading_bay;
@@ -57,7 +55,7 @@ void warehouse::change_no_truck_loading_bay(int new_no_truck_loading_bay)
 	no_truck_loading_bay = new_no_truck_loading_bay;
 }
 
-//return #of ports
+//return #of ports in a warehouse
 int warehouse::get_no_ports()
 {
 	return no_ports;
@@ -69,7 +67,7 @@ void warehouse::change__no_ports(int new_no_ports)
 	no_ports = new_no_ports;
 }
 
-//calculates the maintenance cost
+//calculates the maintenance cost for a warehouse
 int warehouse::get_maintance_cost()
 {
 	return worker_capacity*5 + no_ship_repair_stations*4
