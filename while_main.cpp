@@ -28,7 +28,7 @@ extern void budget_scale(int*, string*, int*, string);
 extern void print_budget(int*);
 
 /* in this program you create a shiping company. The shiping company
-has three types of ojects it holds. Ships, carriers, escort ships, 
+has six types of ojects it holds. Ships, carriers, escort ships, 
 buildings, offices and warehoueses. You a database which stores these objects
 in there own array. There is a limited budget size for the storage capacity so you 
 have to resize the storage capacities of other objects if you wish to increase the storage size
