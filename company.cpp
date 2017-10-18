@@ -154,6 +154,8 @@ void company::add_office(office new_office)
 	}
 }
 
+//allows a office to be added, provided it doesn't cause the 
+//buildings to exceed the maximum number of offices
 void company::add_warehouse(warehouse new_warehouse)
 {
 	if(current_warehouse < max_number_of_warehouses)
@@ -167,95 +169,111 @@ void company::add_warehouse(warehouse new_warehouse)
 	}
 }
 
-//the code below returns pointers of various objects, for other functions that 
-//return the maximum number alowed of each object
+//returns pointer which contains ship objects
 ship* company::get_ships()
 {
 	return ship_store_pointer;
 }
 
+//returns pointer which contains carrier objects
 carrier* company::get_carrier()
 {
 	return carrier_store_pointer;
 }
 
+//returns pointer which contains escort objects
 escort* company::get_escort()
 {
 	return escort_store_pointer;
 }
 
+//returns pointer which contains building objects
 building* company::get_buildings()
 {
 	return building_store_pointer;
 }
 
+//returns pointer which contains office objects
 office* company::get_office()
 {
 	return office_store_pointer;
 }
 
+//returns pointer which contains warehouse objects
 warehouse* company::get_warehouse()
 {
 	return warehouse_store_pointer;
 }
 
+//gets current amount of ships stored in the ship pointer
 int company::get_no_ships()
 {
 	return current_ship;
 }
 
+//gets current amount of carriers stored in the carrier pointer
 int company::get_no_carrier()
 {
 	return current_carrier;
 }
 
+//gets current amount of escort ships stored in the escort pointer
 int company::get_no_escort()
 {
 	return current_escort;
 }
 
+//gets current amount of buildings stored in the building pointer
 int company::get_no_buildings()
 {
 	return current_building;
 }
 
+//gets current amount of offices stored in the office pointer
 int company::get_no_office()
 {
 	return current_office;
 }
 
+//gets current amount of warehouses stored in the warehouse pointer
 int company::get_no_warehouse()
 {
 	return current_warehouse;
 }
 
+//get max number of ships which can be stored in ship array
 int company::get_max_no_ships()
 {
 	return  max_number_of_ships; 
 }
 
+//get max number of carriers which can be stored in carrier array
 int company::get_max_no_carrier()
 {
 	return max_number_of_carriers;
 	
 }
 
+//get max number of escort ships which can be stored in escort array
 int company::get_max_no_escort()
 {
 	return max_number_of_escorts;
 	
 }
 
+//get max number of buildings which can be stored in building array
 int company::get_max_no_buildings()
 {
 	return max_number_of_buildings; 
 }
 
+//get max number of offices which can be stored in office array
 int company::get_max_no_office()
 {
 	return max_number_of_offices; 
 }
 
+//get max number of warehouses which can be stored in warehouse array
 int company::get_max_no_warehouse()
 {
 	return max_number_of_warehouses; 
@@ -265,24 +283,25 @@ int company::get_max_no_warehouse()
 valid number is entered*/
 ship* company::renevate_ship_storage_capability(int new_max_number_of_ships)
 {
-	if(new_max_number_of_ships>=0)
+	if(new_max_number_of_ships>=0) //new max is more than -1
 	{
-		if(current_ship<=new_max_number_of_ships) //make adjustment <= on all
+		if(current_ship<=new_max_number_of_ships) // if new max is less than current amount of ships 
 		{
-			ship* temp_pointer;
+			ship* temp_pointer; //creates a temporary pointer with new size
 			temp_pointer = new ship[new_max_number_of_ships];
-
+                        
+                        //copies ship into new scaled array
 			for (int i = 0; i < current_ship; i++)
 			{
 				temp_pointer[i] = ship_store_pointer[i]; 
 			}
 
-			delete[] ship_store_pointer;
+			delete[] ship_store_pointer; 
 
 			ship_store_pointer = temp_pointer;
 			max_number_of_ships = new_max_number_of_ships;
 
-			return ship_store_pointer;
+			return ship_store_pointer; // returns new scaled array to user
 		}
 		else
 		{
@@ -292,10 +311,11 @@ ship* company::renevate_ship_storage_capability(int new_max_number_of_ships)
 	}
 	else
 	{
-		cout<<"You have zero ships"<<endl;
+		cout<<"can't have less than zero ships"<<endl;
 	}
 }
 
+//same as renevate_ship_storage_capability but with carrier
 carrier* company::renevate_carrier_storage_capability(int new_max_number_of_carriers)
 {
 	if(new_max_number_of_carriers>=0)
@@ -327,11 +347,12 @@ carrier* company::renevate_carrier_storage_capability(int new_max_number_of_carr
 	}
 	else
 	{
-		cout<<"You have zero carriers"<<endl;
+		cout<<"can't have less than zero carriers"<<endl;
 		return carrier_store_pointer;
 	}
 }
 
+//same as renevate_ship_storage_capability but with escort
 escort* company::renevate_escort_storage_capability(int new_max_number_of_escorts)
 {
 	if(new_max_number_of_escorts>=0)
@@ -361,13 +382,12 @@ escort* company::renevate_escort_storage_capability(int new_max_number_of_escort
 	}
 	else
 	{
-		cout<<"You have zero escort ships"<<endl;
+		cout<<"can't have less than zero escort ships"<<endl;
 		return escort_store_pointer;
 	}
 }
 
-/* allows for an increase in the number of buildings
-ensuring a valid number is entered */ 
+//same as renevate_ship_storage_capability but with building
 building* company::rescale_building_budget(int new_max_number_of_buildings)
 {
 	if(new_max_number_of_buildings>=0)
@@ -398,12 +418,13 @@ building* company::rescale_building_budget(int new_max_number_of_buildings)
 	}
 	else
 	{
-		cout<<"You have zero buildings"<<endl;
+		cout<<"can't have less than zero buildings"<<endl;
 		return building_store_pointer;
 	}
 	
 }
 
+//same as renevate_ship_storage_capability but with office
 office* company::rescale_office_budget(int new_max_number_of_offices)
 {
 	if(new_max_number_of_offices>=0)
@@ -434,12 +455,13 @@ office* company::rescale_office_budget(int new_max_number_of_offices)
 	}
 	else
 	{
-		cout<<"budget always allows for atleast one office"<<endl;
+		cout<<"can't have less than zero offices"<<endl;
 		return office_store_pointer;
 	}
 	
 }
 
+//same as renevate_ship_storage_capability but with warehouse
 warehouse* company::rescale_warehouse_budget(int new_max_number_of_warehouses)
 {
 	if(new_max_number_of_warehouses>=0)
@@ -470,7 +492,7 @@ warehouse* company::rescale_warehouse_budget(int new_max_number_of_warehouses)
 	}
 	else
 	{
-		cout<<"you have zero warehouses"<<endl;
+		cout<<"can't have less than zero warehouses"<<endl;
 		return warehouse_store_pointer;
 	}
 	
