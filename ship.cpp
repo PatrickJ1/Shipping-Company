@@ -4,7 +4,7 @@
 using namespace std;
 int ship::currentID = 0;
 
-/*default constructor for ship objects
+//default constructor for ship objects
 ship::ship()
 {
 	
