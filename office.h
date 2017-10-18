@@ -4,8 +4,7 @@
 #include <iostream>
 #include <string>
 
-//Office class takes in public functions and variables
-//from the building abstract class
+//Office class inherits from building class
 class office : public building
 {
 	//specific variables for the office class
@@ -25,7 +24,5 @@ public:
 	int get_no_of_meeting_rooms();
 	std::string get_building_type();
 	int get_maintance_cost();
-	//~office();
-	
 };
 #endif
