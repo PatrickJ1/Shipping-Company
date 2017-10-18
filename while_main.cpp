@@ -190,29 +190,28 @@ int main()
 		} 
 		else if(command == "remove_ship") /* initializes process of removing a ship object*/
 		{
-			//change_function_check = eco.get_no_ships();
 			cout<<"Enter id of ship you wish to delete: ";
-			id = sti(s_id);
+			id = sti(s_id); // gets id
 
-			ship_storage_pointer = eco.remove_ship(id);
+			ship_storage_pointer = eco.remove_ship(id); // deletes ship if id match
 		}
-		else if(command == "remove_carrier")
+		else if(command == "remove_carrier") //same as remove_ship but carrier
 		{
-			//change_function_check = eco.get_no_carrier();
 			cout<<"Enter id of carrier you wish to delete: ";
 			id = sti(s_id);
 
 			carrier_storage_pointer = eco.remove_carrier(id);
 		}
-		else if(command == "remove_escort")
+		else if(command == "remove_escort") // same as remove_ship but escort ship
 		{
 			cout<<"Enter id of escort ship you wish to delete: ";
 			id = sti(s_id);
 
 			escort_storage_pointer = eco.remove_escort(id);
-		/* prints all the ships of any type for the user*/
 		}
-		else if(command == "print_all_ship_type")
+		// prints out information of every type of ship
+		// general ship , carrier and escort ship are printed
+		else if(command == "print_all_ship_type") 
 		{
 			for(int i =0; i<eco.get_no_ships(); i++)
 			{
@@ -223,7 +222,7 @@ int main()
 			for(int i =0; i<eco.get_no_carrier(); i++)
 			{
 				ship_print(&carrier_storage_pointer[i]);
-				carrier_print(&carrier_storage_pointer[i]);
+				carrier_print(&carrier_storage_pointer[i]); 
 				cout<<endl;
 			}
 
@@ -234,13 +233,13 @@ int main()
 				cout<<endl;
 			}
 
-			if(eco.get_no_ships() + eco.get_no_carrier() + eco.get_no_escort() == 0)
+			if(eco.get_no_ships() + eco.get_no_carrier() + eco.get_no_escort() == 0) // sees if any ships are stored
 			{
 				cout<<"You have no ships of any type"<<endl;
 			}
 
 		}
-		else if(command == "print_all_ships")
+		else if(command == "print_all_ships") // prints info for all general ships
 		{
 			for(int i =0; i<eco.get_no_ships(); i++)
 			{
@@ -253,7 +252,7 @@ int main()
 				cout<<"You have no ships"<<endl;
 			}
 		}
-		else if(command == "print_all_carriers")
+		else if(command == "print_all_carriers") // prints info for all carriers
 		{
 			for(int i =0; i<eco.get_no_carrier(); i++)
 			{
@@ -267,7 +266,7 @@ int main()
 				cout<<"You have no carriers"<<endl;
 			}
 		}
-		else if(command == "print_all_escorts")
+		else if(command == "print_all_escorts") // prints info for all escort ships
 		{
 			for(int i =0; i<eco.get_no_escort(); i++)
 			{
@@ -281,7 +280,7 @@ int main()
 				cout<<"You have no escort ships"<<endl;
 			}
 		}
-		else if(command == "print_id_ships")
+		else if(command == "print_id_ships") // prints a ship info if id match . for any ship type
 		{
 			cout<<"Enter id of ship you wish to print: ";
 			id = sti(s_id);
@@ -318,11 +317,9 @@ int main()
 				}
 			}
 
-			id_match = id_print(&id_match);
+			id_match = id_print(&id_match); // sets id_match to false and prints out if there were no matches 
 		}
-		
-		/* Initializes process to create a ship */
-		else if(command == "change_ship_name")
+		else if(command == "change_ship_name") //to change particular ship name. If id match a current ship
 		{
 			cout<<"Enter id of ship you wish to modify: ";
 			id = sti(s_id);
@@ -368,7 +365,7 @@ int main()
 
 			id_match = id_print(&id_match);
 		}
-		else if(command == "change_ship_crew_capacity")
+		else if(command == "change_ship_crew_capacity") // to change crew capacity in a ship if entered id matches
 		{
 			cout<<"Enter id of ship you wish to modify: ";
 			id = sti(s_id);
@@ -414,9 +411,7 @@ int main()
 
 			id_match = id_print(&id_match);
 		}
-		
-		
-		else if(command == "change_carrier_storage")
+		else if(command == "change_carrier_storage") // change cargo capacity for particular carrier if id matches
 		{
 			cout<<"Enter id of carrier you wish to modify: ";
 			id = sti(s_id);
@@ -435,7 +430,7 @@ int main()
 
 			id_match = id_print(&id_match);
 		}
-		else if(command == "change_soldier_capacity")
+		else if(command == "change_soldier_capacity") // change solider capacity in particular escort ship if id mathes
 		{
 			cout<<"Enter id of escort ship you wish to modify: ";
 			id = sti(s_id);
@@ -453,7 +448,7 @@ int main()
 
 			id_match = id_print(&id_match);
 		}
-		else if(command == "change_peace_capacity")
+		else if(command == "change_peace_capacity") // change weapon capacity in particular escort ship if id matches
 		{
 			cout<<"Enter id of escort ship you wish to modify: ";
 			id = sti(s_id);
