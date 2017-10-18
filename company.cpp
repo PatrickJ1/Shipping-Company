@@ -498,34 +498,34 @@ warehouse* company::rescale_warehouse_budget(int new_max_number_of_warehouses)
 	
 }
 
-/* This function deletes a ship using its pointer and
-serching for a matching Id. A message is printed
+/* This function deletes a ship from the ship storage pointer 
+using its id. A message is printed
 announcing the success of the process */
 ship* company::remove_ship(int id_of_ship)
 {
 	if(current_ship != 0)
 	{
-		ship* temp_pointer;
+		ship* temp_pointer; //creates a pointer with the same size as the inital pointer
 		temp_pointer = new ship[max_number_of_ships];
-		int old_current_ship = current_ship;
-		int keep_positon =0;
-		bool id_match = false;
+		int old_current_ship = current_ship; // keep current amount of ships
+		int keep_positon =0; // used to keep position if there is a match of id
+		bool id_match = false; // checks if ships of the id exists
 
-		for (int i = 0; i < old_current_ship; i++)
+		for (int i = 0; i < old_current_ship; i++) // loops through ship pointer
 		{
-			if(ship_store_pointer[i].get_ship_id() != id_of_ship)
+			if(ship_store_pointer[i].get_ship_id() != id_of_ship)  // if no match of id copy ship into new pointer
 			{
 				temp_pointer[i+keep_positon] = ship_store_pointer[i];
 				
 
 			}
-			else
+			else //if matcth
 			{
-				current_ship--;
+				current_ship--;  // remove a number of ships stored
 
 				cout<<"ship of id "<<id_of_ship<<"has been removed"<<endl;
-				keep_positon--;
-				id_match = true;
+				keep_positon--; // keep positon of the array for next ship to be placed in. as nothing was placed for this i
+				id_match = true; //match was found
 			}
 		}
 
@@ -537,7 +537,7 @@ ship* company::remove_ship(int id_of_ship)
 		delete[] ship_store_pointer;
 
 		ship_store_pointer = temp_pointer;
-		return ship_store_pointer;
+		return ship_store_pointer; // return pointer back to main file
 
 	}
 	else
@@ -547,6 +547,7 @@ ship* company::remove_ship(int id_of_ship)
 	}
 }
 
+//same as remove_ship but with carrier
 carrier* company::remove_carrier(int id_of_carrier)
 {
 	if(current_carrier != 0)
@@ -592,6 +593,7 @@ carrier* company::remove_carrier(int id_of_carrier)
 	}
 }
 
+//same as remove_ship but with escort
 escort* company::remove_escort(int id_of_escort)
 {
 	if(current_escort != 0)
@@ -636,9 +638,7 @@ escort* company::remove_escort(int id_of_escort)
 	}
 }
 
-/* This function deletes a building using its pointer and
-serching for a matching Id. A message is printed
-announcing the success of the process */
+//same as remove_ship but with building
 building* company::remove_building(int id_of_building)
 {
 	if(current_building != 0)
@@ -684,6 +684,7 @@ building* company::remove_building(int id_of_building)
 	}
 }
 
+//same as remove_ship but with office
 office* company::remove_office(int id_of_office)
 {
 	if(current_office != 0)
@@ -729,6 +730,7 @@ office* company::remove_office(int id_of_office)
 	}
 }
 
+//same as remove_ship but with warehouse
 warehouse* company::remove_warehouse(int id_of_warehouse)
 {
 	if(current_warehouse != 0)
@@ -785,11 +787,4 @@ company::~company()
 	delete[] warehouse_store_pointer;
 
 	cout<<"----Program ended----"<<endl;
-
-	/*ship_store_pointer= NULL;
-	carrier_store_pointer= NULL;
-	escort_store_pointer= NULL;
-	building_store_pointer= NULL;
-	office_store_pointer= NULL;
-	warehouse_store_pointer= NULL;*/
 }
