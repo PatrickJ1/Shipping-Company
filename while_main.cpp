@@ -153,21 +153,19 @@ int main()
 				cout<<"storage full"<<endl;
 			}
 		}
-		/* allows the storage of all of the ship objects to be changed
-		while account for this in the budget*/
+		/* for changing the size of the array which stores the ship */
 		else if(command == "resize_ship_storage")
 		{
-			budget = budget + eco.get_max_no_ships();
+			budget = budget + eco.get_max_no_ships(); // resets budget as if no ship storage exists
 			cout<<"Ships have been removed from the budget"<<endl;
 			print_budget(&budget);
 			cout<<"Enter new ship storage size: ";
-			budget_scale(&data_input, &s_data_input, &budget, "ship" );
-			//data_input = sti(s_data_input);
-			ship_storage_pointer =  eco.renevate_ship_storage_capability(data_input);
-			budget = budget - eco.get_max_no_ships();
+			budget_scale(&data_input, &s_data_input, &budget, "ship" ); //if within budget ship storage size returned in data_input. 
+			ship_storage_pointer =  eco.renevate_ship_storage_capability(data_input); //new size inputed in ship
+			budget = budget - eco.get_max_no_ships(); // budget changed accordingly
 
 		}
-		else if(command == "resize_carrier_storage")
+		else if(command == "resize_carrier_storage") //same as resize_ship_storage but carrier
 		{
 			budget = budget + 4*eco.get_max_no_carrier();
 			cout<<"Carriers have been removed from the budget"<<endl;
@@ -179,7 +177,7 @@ int main()
 			budget = budget - 4*eco.get_max_no_carrier();
 
 		}
-		else if(command == "resize_escort_storage")
+		else if(command == "resize_escort_storage") //same as resize_ship_storage but escort ship
 		{
 			budget = budget + 2*eco.get_max_no_escort();
 			cout<<"Escort ships have been removed from the budget"<<endl;
@@ -189,21 +187,14 @@ int main()
 			//data_input = sti(s_data_input);
 			escort_storage_pointer =  eco.renevate_escort_storage_capability(data_input);
 			budget = budget - 2*eco.get_max_no_escort();
-		
-		/* initializes process of removing a ship object*/
 		} 
-		else if(command == "remove_ship")
+		else if(command == "remove_ship") /* initializes process of removing a ship object*/
 		{
 			//change_function_check = eco.get_no_ships();
 			cout<<"Enter id of ship you wish to delete: ";
 			id = sti(s_id);
 
 			ship_storage_pointer = eco.remove_ship(id);
-
-			/*if(change_function_check==eco.get_no_ships())
-			{
-				cout<<"No match of id"<<endl;
-			}*/
 		}
 		else if(command == "remove_carrier")
 		{
@@ -212,11 +203,6 @@ int main()
 			id = sti(s_id);
 
 			carrier_storage_pointer = eco.remove_carrier(id);
-
-			/*if(change_function_check==eco.get_no_carrier())
-			{
-				cout<<"No match of id"<<endl;
-			}*/
 		}
 		else if(command == "remove_escort")
 		{
