@@ -29,7 +29,6 @@ public:
 	std::string get_branch_location();
 	int get_ID();
 	virtual std::string get_building_type();
-	int number_of_bathroom();
 	int get_maintance_cost();	
 };
 #endif 
