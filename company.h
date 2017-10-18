@@ -30,7 +30,6 @@ private:
 	int current_office;
 	int current_warehouse;
 
-	//int number_of_ports;
 	std::string company_name;
 
 	ship *ship_store_pointer;
