@@ -4,17 +4,15 @@
 #include <string>
 using namespace std;
 
-/*default constructor, takes in functions and variables from
-the building abstract class */
+/*default constructor ofr office which also uses building cunstuctor 
+which it inheritace from*/
 office::office() : building()
 {
 	no_of_office_spaces = 0;
 	no_of_meeting_rooms =0;
 }
 
-/* Takes in offices space, number of meeting rooms,
-building material, worker capacity and branch location
-from main function and implements into functions*/
+/* construtor with inputs for an office object*/
 office::office(int inital_no_of_office_spaces, 
 		       int inital_no_of_meeting_rooms, 
 		       string inital_building_material, 
