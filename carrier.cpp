@@ -11,11 +11,10 @@ carrier::carrier() : ship()
 	storage_capacity =0;
 }
 
-/* Takes in storage capacity, crew capacity and ship name
-from main function and implements into functions*/
+/* constructor with inputs to create a carrier object*/
 carrier::carrier(int initial_storage_capacity,int initial_crew_capacity, 
 				 string inital_ship_name) : ship(initial_crew_capacity, 
-				 								 inital_ship_name)
+				 				 inital_ship_name)
 {
 	storage_capacity = initial_storage_capacity;
 }
