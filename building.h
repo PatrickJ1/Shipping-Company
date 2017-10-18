@@ -4,7 +4,7 @@
 #include <string>
 #include "cost.h"
 
-class building : public cost //inheris from abstract class cost
+class building : public cost //inherits from abstract class cost
 {
 	//initializing variables 
 	std::string building_material;
