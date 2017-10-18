@@ -1,9 +1,3 @@
-//initialise company
-
-// have while loop
-//switch statment intside loop
-//can initialise generic ship then put it into array
-
 #include "company.h"
 #include "ship.h"
 #include "carrier.h"
@@ -30,92 +24,44 @@ extern void carrier_print(carrier*);
 extern void escort_print(escort*);
 extern int sti(string);
 extern bool id_print(bool*);
-//extern void company_creation_budget(int*, string *, int *);
 extern void budget_scale(int*, string*, int*, string);
 extern void print_budget(int*);
 
 int main()
 {
-	//have more discription of what progtam does
-	company eco = company_creation();
+	company eco = company_creation(); // creates a company
 
+	//gets acces to the object storage pointers
 	building* building_storage_pointer= eco.get_buildings();
-
 	office* office_storage_pointer = eco.get_office();
-
 	warehouse* warehouse_storage_pointer = eco.get_warehouse();
-
 	ship* ship_storage_pointer = eco.get_ships();
-
 	carrier* carrier_storage_pointer = eco.get_carrier();
-
 	escort* escort_storage_pointer = eco.get_escort();
-
+	
+	/*finds budget based on size of storages of each object in company creation*/
 	int budget = 50;
 	 budget = budget - eco.get_max_no_ships() - 4*eco.get_max_no_carrier() 
 	 			- 2*eco.get_max_no_escort() - eco.get_max_no_buildings() 
 	 			- 5*eco.get_max_no_office() - 5*eco.get_max_no_warehouse();
 
-	bool program_run = true;
-	string command;
-	int id;
-	string s_id;
-	int data_input;
-	string s_data_input;
-	bool id_match = false;
-	//int change_function_check;
-
+	bool program_run = true; // keeps program in while loop
+	string command; //command to match in else if statment
+	int id; // int which is set to the id of object which user whishes to find
+	string s_id; // inital string id to be converted to int id
+	int data_input; // int data input from s_data_input if input will be converted to int
+	string s_data_input; // string data input from prompts by the user
+	bool id_match = false; // initial no id match when looking for a object by id
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	//while loop with else if statments and promts asking the user what they want to do
 	while(program_run == true)
 	{
 		cout<<endl<<"Enter: 'list_commands' to see command options"
-		<<endl<<"Enter command: ";
+		<<endl<<"Enter command: "; // defult prompt for the user to enter a command
 		
-		cin >> command;
+		cin >> command; // command input
 
-		if(command == "end_program")
+		if(command == "end_program") // ends the while loop if called
 		{
 			program_run = false;
 		}
@@ -167,11 +113,8 @@ int main()
 			cout<<"get_current_budget"<<endl;
 			cout<<"end_program"<<endl;
 			cout<<"----end list----"<<endl;
-
-
-
 		}
-		else if(command == "add_ship")
+		else if(command == "add_ship") // adds ship into ship storage
 		{
 			//Prevents ship creation if max number has been exceeded
 			if(eco.get_no_ships()<eco.get_max_no_ships())
@@ -185,7 +128,7 @@ int main()
 				cout<<"storage full"<<endl;
 			}
 		}
-		else if(command == "add_carrier")
+		else if(command == "add_carrier") //same as add_ship command but carrier
 		{
 			if(eco.get_no_carrier()<eco.get_max_no_carrier())
 			{
@@ -198,7 +141,7 @@ int main()
 				cout<<"storage full"<<endl;
 			}
 		}
-		else if(command == "add_escort")
+		else if(command == "add_escort") // same as add_ship command but escort ship
 		{
 			if(eco.get_no_escort()<eco.get_max_no_escort())
 			{
