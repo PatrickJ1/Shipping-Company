@@ -7,6 +7,7 @@ class carrier : public ship
 {
 private:
 	int storage_capacity; // 1 is equivalent to 1 container
+
 //initializing functions
 public:
 	carrier();
@@ -14,7 +15,5 @@ public:
 	int get_storage_capacity();
 	void ship_capactiy_renevation(int new_stroage_capacity);
 	int get_maintance_cost();
-	//~carrier();
-	
 };
 #endif
