@@ -4,8 +4,7 @@
 #include <string>
 using namespace std;
 
-/*default constructor, takes in functions and variables from
-the ship abstract class */
+/*default constructor pushes extra intput into ship constructor which it inheritace from
 escort::escort() : ship()
 {
 	number_of_soldiers = 0;
