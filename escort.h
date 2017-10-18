@@ -19,7 +19,5 @@ public:
 	void change_peace_equiptment_amount(int new_equiptment_of_peace);
 	void defence_center_renevation(int new_numbers_of_soldiers);
 	int get_maintance_cost();
-	//~escort();
-	
 };
 #endif
