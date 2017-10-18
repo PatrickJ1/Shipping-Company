@@ -4,8 +4,8 @@
 #include <string>
 using namespace std;
 
-/*default constructor, takes in functions and variables from
-the ship abstract class */
+/*default constructor, passes input into ship class
+which it inherits from*/
 carrier::carrier() : ship()
 {
 	storage_capacity =0;
