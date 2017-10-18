@@ -32,5 +32,4 @@ public:
 	int number_of_bathroom();
 	int get_maintance_cost();	
 };
-
 #endif 
