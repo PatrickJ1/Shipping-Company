@@ -4,7 +4,7 @@
 #include <string>
 #include "cost.h"
 
-class building : public cost //implemtation of abstract class cost
+class building : public cost //inheris from abstract class cost
 {
 	//initializing variables 
 	std::string building_material;
@@ -30,12 +30,7 @@ public:
 	int get_ID();
 	virtual std::string get_building_type();
 	int number_of_bathroom();
-	int get_maintance_cost();
-
-
-
-	//~building();
-	
+	int get_maintance_cost();	
 };
 
 #endif 
