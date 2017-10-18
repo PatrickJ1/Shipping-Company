@@ -4,8 +4,7 @@
 using namespace std;
 int ship::currentID = 0;
 
-/*default constructor, takes in functions and variables from
-the ship abstract class */
+/*default constructor for ship objects
 ship::ship()
 {
 	
@@ -13,8 +12,7 @@ ship::ship()
 	ship_name = "Vacant";
 }
 
-/* Takes in crew capacity and ship name from main function and 
-implements into functions*/
+/* constructor with inputs for ship object*/
 ship::ship(int initial_crew_capacity, string inital_ship_name)
 {
 	shipID = currentID;
