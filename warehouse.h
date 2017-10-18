@@ -27,7 +27,5 @@ public:
 	int get_no_ports();
 	void change__no_ports(int new_no_ports);
 	int get_maintance_cost();
-	//~warehouse();
-	
 };
 #endif
