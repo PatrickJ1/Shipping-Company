@@ -27,15 +27,22 @@ extern bool id_print(bool*);
 extern void budget_scale(int*, string*, int*, string);
 extern void print_budget(int*);
 
-/* in this program you create a shiping company. The shiping company
-has six types of ojects it holds. Ships, carriers, escort ships, 
-buildings, offices and warehoueses. You a database which stores these objects
-in there own array. There is a limited budget size for the storage capacity so you 
-have to resize the storage capacities of other objects if you wish to increase the storage size
-of another object. You can change some of the information of the objects after you have added them
-and you can print the information of the objects to the screen to check their info.
-The program initally creates a company and keeps you in a while loop until you 
-type in end_program when promted for a command*/
+/* In this program a shiping company is created. The shiping company
+has six types of object it holds: 
+-Ships 
+-carriers 
+-escort ships 
+-buildings 
+-offices 
+-warehoueses
+
+A database stores all these objects, each in their own array. There is a limited 
+budget for the total storage capacity, so if you wish to increase the storage size of an 
+object the other objects must be resized to accommodate this. You can change some of the 
+information of the objects after you have added them and you can print the information 
+of the objects to the screen to check their info. The program initally creates a 
+company and keeps you in a while loop until you type in end_program when promted for a command*/
+
 int main()
 {
 	company eco = company_creation(); // creates a company
